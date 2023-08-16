@@ -9,6 +9,9 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
+
+
+
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
@@ -16,6 +19,7 @@ knitr::opts_chunk$set(
 )
 ```
 
+# is that good?22wwwwwww
 
 ### 0.1. how to do use Git?
 
