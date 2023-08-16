@@ -42,6 +42,7 @@ knitr::opts_chunk$set(
 
 9. plzplzplzplz
 
+10 attemp
 
 ## 1. Panel Data - 개요
 
