@@ -16,7 +16,21 @@ knitr::opts_chunk$set(
 )
 ```
 
+
+### 0.1. how to do use Git?
+
+     -  How to pull?
+     -  How to push?
+          1. make commitment
+          2. push.
+          Note that we must to do make commitment first. Why? we need to write down the descriptions about the version.
+     
+### What am I supposed to do if I meet these errors?
+
+     1. 
+ 
 ## 0. Introduction
+     
 
 나의 지도 교수님이 추천해주신 책의 내용을 정리하면서, 공부를 시작해 볼 예정. 이 material들의 목적은 다음과 같다.
 
@@ -34,18 +48,19 @@ knitr::opts_chunk$set(
 
 5.  그럼 시작 !
 
-6. 학기중에도 작성해야지
+6.  학기중에도 작성해야지
 
-7. why??????
+7.  why??????
 
-8. 그래 바껴야지
+8.  그래 바껴야지
 
-9. plzplzplzplz
+9.  plzplzplzplz
 
 10 attemp
 
 10 whay???
 
+1
 
 ## 1. Panel Data - 개요
 
@@ -63,11 +78,6 @@ knitr::opts_chunk$set(
 
 2.  If run standard OLS using panel data, then we may have biased estimates. see followings
 
-
-
-
-
-
 ## 2. settings - the situation we are looking through
 
 ### 2.0. What data do we need to have?
@@ -81,8 +91,8 @@ Let we have [balanced panel data]{.underline}.
 
 ### 2.1. notation settings
 
-LHS var for individual i at time t is that
-$$y_{it}, \ \ \  i = 1,...N, and t = 1,...,T.$$
+LHS var for individual i at time t is that $$y_{it}, \ \ \  i = 1,...N, and t = 1,...,T.$$
+
 ```{r}
 set.seed(6262)
 
@@ -104,10 +114,10 @@ set.seed(6262)
      y_i4_t1 <- rnorm(1);  y_i4_t2 <- rnorm(1);  y_i4_t3 <- rnorm(1);
 ```
 
-
 Using vector notation, we can denote the LHS variable such that
 
 $${\bar{Y}}_i=\left(y_{i1},\ \ldots,\ y_{iT}\right)^\prime,$$
+
 ```{r}
 #yi, i = 1,...9
      #y1
@@ -119,9 +129,11 @@ $${\bar{Y}}_i=\left(y_{i1},\ \ldots,\ y_{iT}\right)^\prime,$$
      print(y_i1)
      print(y_i4)
 ```
+
 To use matrix notation, we can denote this in convenience such that
 
 $${\bar{Y}}=\left(y_{i},\ \ldots,\ y_{i}\right)^\prime,$$
+
 ```{r}
 #yi, i = 1,...9
      #y1
@@ -129,10 +141,10 @@ $${\bar{Y}}=\left(y_{i},\ \ldots,\ y_{i}\right)^\prime,$$
      print(y)
 ```
 
-
 K-th RHS variable for individual i at time t is that
 
 $$x_{itk}, \ \ \  i = 1,...N, \  t = 1,...,T, and \ k = 1,..., K.$$
+
 ```{R}
 #set T = 3, N = 4, K = 2 to demonstrate example
 #x_11k for k = 1,2
@@ -152,8 +164,7 @@ $$x_{itk}, \ \ \  i = 1,...N, \  t = 1,...,T, and \ k = 1,..., K.$$
      x_i4_t1_k1 <- rnorm(1); x_i4_t1_k2 <- rnorm(1); x_i4_t2_k1 <- rnorm(1); x_i4_t2_k2 <- rnorm(1); x_i4_t3_k1 <- rnorm(1); x_i4_t3_k2 <- rnorm(1);
 ```
 
-Using vector notation, we have
-$${\bar{x}}_{it}=\left(x_{it1},\ \ldots,\ x_{itK}\right)^\prime,$$
+Using vector notation, we have $${\bar{x}}_{it}=\left(x_{it1},\ \ldots,\ x_{itK}\right)^\prime,$$
 
 ```{R}
 #x_it
@@ -173,8 +184,8 @@ $${\bar{x}}_{it}=\left(x_{it1},\ \ldots,\ x_{itK}\right)^\prime,$$
 
 ```
 
-Using matrix notation, we have
-$${\bar{X}}_i=\left(\begin{matrix}x_{i11}&\cdots&x_{i1T}\\\vdots&\ddots&\vdots\\x_{iK1}&\cdots&x_{iKT}\\\end{matrix}\right)^\prime,$$
+Using matrix notation, we have $${\bar{X}}_i=\left(\begin{matrix}x_{i11}&\cdots&x_{i1T}\\\vdots&\ddots&\vdots\\x_{iK1}&\cdots&x_{iKT}\\\end{matrix}\right)^\prime,$$
+
 ```{r}
 #xi
      #x1
@@ -190,8 +201,8 @@ $${\bar{X}}_i=\left(\begin{matrix}x_{i11}&\cdots&x_{i1T}\\\vdots&\ddots&\vdots\\
      print(x_i4)
 ```
 
-Using matrix notation for once more, we have
-$${\bar{X}}=\left(x_{1},\ \ldots,\ x_{N}\right)^\prime,$$
+Using matrix notation for once more, we have $${\bar{X}}=\left(x_{1},\ \ldots,\ x_{N}\right)^\prime,$$
+
 ```{r}
 #x
      x <- rbind(x_i1, x_i2, x_i3, x_i4)
@@ -199,25 +210,17 @@ $${\bar{X}}=\left(x_{1},\ \ldots,\ x_{N}\right)^\prime,$$
      print(x)
 ```
 
-
-
-also, we have
-$$\bar{\beta}=\left(\beta_1,\ \ldots,\ \beta_k\right)$$ 
+also, we have $$\bar{\beta}=\left(\beta_1,\ \ldots,\ \beta_k\right)$$
 
 $${\bar{\varepsilon}}_i=\left(\varepsilon_{i1},\ \ldots,\ \varepsilon_{iT}\right)^\prime.$$
 
 ### 2.2. Specification
 
-$${\bar{Y}}_i=\ {\bar{X}}_i^\prime\bar{\beta}+{\bar{\varepsilon}}_i,\ \ \ \ i=1,\ \ldots,\ n, $$ 
+$${\bar{Y}}_i=\ {\bar{X}}_i^\prime\bar{\beta}+{\bar{\varepsilon}}_i,\ \ \ \ i=1,\ \ldots,\ n, $$
 
 $$where\ {\bar{\varepsilon}}_i={\bar{a}}_i+{\bar{u}}_i,\ \ \ {\bar{a}}_i=\left(\begin{matrix}a_i&\ldots&a_i\\\end{matrix}\right),\ and\ {\bar{u}}_i=\left(\begin{matrix}u_{i1}&\ldots&u_{it}\\\end{matrix}\right)\ $$
 
 In this specification, We called ${\bar{a}}_i$ to time-invariant error term, and ${\bar{u}}_i$ to time-variant error term.
-
-
-
-
-
 
 ## 3. Is this identified?
 
@@ -235,10 +238,6 @@ $$\bar{\beta}=E\left[{{\bar{X}}_i\bar{X}}_i^\prime\right]^{-1}E\left[{\bar{X}}_i
 
 Thus, this equation is identified if $E\left[{{\bar{X}}_i\bar{\varepsilon}}_i\right]$ is equal to zero, meaning that we need to have $E[{\bar{X}}_i a_i] = 0$ and $E[{\bar{X}}_i u_i] = 0$.
 
-
-
-
-
 ## 4. Estimation
 
 ### 4.1. Pooled ols case
@@ -247,14 +246,11 @@ Thus, this equation is identified if $E\left[{{\bar{X}}_i\bar{\varepsilon}}_i\ri
 
 -   a standard ols estimator running with panel data
 
-
-
 #### 4.1.2. pooled ols estimator
 
 the corresponding pooled ols estimator is that
 
 $${\widehat{\bar{\beta}}}_{ols}=\left(\frac{1}{n}\sum_{i}^{n}{{\bar{X}}^\prime_i{\bar{X}}_i}\right)^{-1}\left(\frac{1}{n}\sum_{i}^{n}{{\bar{X}}^\prime_i{\bar{Y}}_i}\right)$$
-
 
 ```{r}
 #checking dimension
@@ -282,23 +278,17 @@ dim(t(x_i1)%*%(x_i1))
 
 ```
 
-
-
 #### 4.1.3. Is this a consistent estimator?
 
 NO, unless $E[{\bar{X}}_i a_i] = 0$
 
-$${\widehat{\bar{\beta}}}_{ols}=\left(\frac{1}{n}\sum_{i}^{n}{{\bar{X}}_i{\bar{X}}_i^\prime}\right)^{-1}\left(\frac{1}{n}\sum_{i}^{n}{{\bar{X}}_i{\bar{Y}}_i}\right)$$ 
+$${\widehat{\bar{\beta}}}_{ols}=\left(\frac{1}{n}\sum_{i}^{n}{{\bar{X}}_i{\bar{X}}_i^\prime}\right)^{-1}\left(\frac{1}{n}\sum_{i}^{n}{{\bar{X}}_i{\bar{Y}}_i}\right)$$
 
 $${\widehat{\bar{\beta}}}_{ols}=\left(\frac{1}{n}\sum_{i}^{n}{{\bar{X}}_i{\bar{X}}_i^\prime}\right)^{-1}\left(\frac{1}{n}\sum_{i}^{n}{{\bar{X}}_i({\bar{X}}_i^\prime\bar{\beta}+{\bar{a}}_i+{\bar{u}}_i)}\right)$$
 
-$${\widehat{\bar{\beta}}}_{ols}={\bar{\beta}+\left(\frac{1}{n}\sum_{i}^{n}{{\bar{X}}_i{\bar{X}}_i^\prime}\right)}^{-1}\left(\frac{1}{n}\sum_{i}^{n}{{\bar{X}}_i{\bar{a}}_i}\right){+\left(\frac{1}{n}\sum_{i}^{n}{{\bar{X}}_i{\bar{X}}_i^\prime}\right)}^{-1}\left(\frac{1}{n}\sum_{i}^{n}{{\bar{X}}_i{\bar{u}}_i}\right)$$ 
+$${\widehat{\bar{\beta}}}_{ols}={\bar{\beta}+\left(\frac{1}{n}\sum_{i}^{n}{{\bar{X}}_i{\bar{X}}_i^\prime}\right)}^{-1}\left(\frac{1}{n}\sum_{i}^{n}{{\bar{X}}_i{\bar{a}}_i}\right){+\left(\frac{1}{n}\sum_{i}^{n}{{\bar{X}}_i{\bar{X}}_i^\prime}\right)}^{-1}\left(\frac{1}{n}\sum_{i}^{n}{{\bar{X}}_i{\bar{u}}_i}\right)$$
 
 $$plim\left({\widehat{\bar{\beta}}}_{ols}\right)\ =\ \bar{\beta}+E\left[{\bar{X}}_i{\bar{X}}_i^\prime\right]^{-1}E\left[{\bar{X}}_i{\bar{a}}_i\right]+0$$
-
-
-
-
 
 ### 4.2. Fixed (within) effects model
 
@@ -306,7 +296,7 @@ Intuition: transform data to eliminate $a_i$ form error term. It only works if �
 
 #### 4.2.1. New Notation and Specification
 
-Let use a new notation, 
+Let use a new notation,
 
 $${\ddot{y}}_{it}=y_{it}-\frac{1}{T}\sum_{t=1}^{T}y_{it},$$
 
