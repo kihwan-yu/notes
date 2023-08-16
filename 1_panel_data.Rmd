@@ -28,6 +28,8 @@ knitr::opts_chunk$set(
 ### What am I supposed to do if I meet these errors?
 
      1. 
+     
+     
  
 ## 0. Introduction
      
