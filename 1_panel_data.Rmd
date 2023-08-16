@@ -44,6 +44,9 @@ knitr::opts_chunk$set(
 
 10 attemp
 
+10 whay???
+
+
 ## 1. Panel Data - 개요
 
 ### What is Panel Data?
