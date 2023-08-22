@@ -25,6 +25,9 @@ knitr::opts_chunk$set(
 
 # godgodgggggggg
 
+#MANOJ
+
+
 # Iwant to change that
 
 ### 0.1. how to do use Git?
