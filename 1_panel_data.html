@@ -12,7 +12,7 @@
 
 <meta name="author" content="Kihwan Yu" />
 
-<meta name="date" content="2023-08-16" />
+<meta name="date" content="2023-08-21" />
 
 <title>Panel Data Analysis</title>
 
@@ -340,12 +340,21 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 <h1 class="title toc-ignore">Panel Data Analysis</h1>
 <h4 class="author">Kihwan Yu</h4>
-<h4 class="date">2023-08-16</h4>
+<h4 class="date">2023-08-21</h4>
 
 
 
 <div id="is-that-good22wwwwwww" class="section level1">
 <h1>is that good?22wwwwwww</h1>
+</div>
+<div id="test-test" class="section level1">
+<h1>test test</h1>
+</div>
+<div id="godgodgggggggg" class="section level1">
+<h1>godgodgggggggg</h1>
+</div>
+<div id="iwant-to-change-that" class="section level1">
+<h1>Iwant to change that</h1>
 <div id="how-to-do-use-git" class="section level3">
 <h3>0.1. how to do use Git?</h3>
 <pre><code> -  How to pull?
@@ -716,321 +725,314 @@ specification?</h4>
 <div id="example-with-code" class="section level2">
 <h2>5. example with code</h2>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a><span class="co">#&gt; Warning: 패키지 &#39;tidyverse&#39;는 R 버전 4.2.3에서 작성되었습니다</span></span>
-<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a><span class="co">#&gt; Warning: 패키지 &#39;ggplot2&#39;는 R 버전 4.2.3에서 작성되었습니다</span></span>
-<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a><span class="co">#&gt; Warning: 패키지 &#39;tidyr&#39;는 R 버전 4.2.3에서 작성되었습니다</span></span>
-<span id="cb11-5"><a href="#cb11-5" tabindex="-1"></a><span class="co">#&gt; Warning: 패키지 &#39;forcats&#39;는 R 버전 4.2.3에서 작성되었습니다</span></span>
-<span id="cb11-6"><a href="#cb11-6" tabindex="-1"></a><span class="co">#&gt; Warning: 패키지 &#39;lubridate&#39;는 R 버전 4.2.3에서 작성되었습니다</span></span>
-<span id="cb11-7"><a href="#cb11-7" tabindex="-1"></a><span class="co">#&gt; ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──</span></span>
-<span id="cb11-8"><a href="#cb11-8" tabindex="-1"></a><span class="co">#&gt; ✔ dplyr     1.0.10     ✔ readr     2.1.3 </span></span>
-<span id="cb11-9"><a href="#cb11-9" tabindex="-1"></a><span class="co">#&gt; ✔ forcats   1.0.0      ✔ stringr   1.5.0 </span></span>
-<span id="cb11-10"><a href="#cb11-10" tabindex="-1"></a><span class="co">#&gt; ✔ ggplot2   3.4.3      ✔ tibble    3.1.8 </span></span>
-<span id="cb11-11"><a href="#cb11-11" tabindex="-1"></a><span class="co">#&gt; ✔ lubridate 1.9.2      ✔ tidyr     1.3.0 </span></span>
-<span id="cb11-12"><a href="#cb11-12" tabindex="-1"></a><span class="co">#&gt; ✔ purrr     1.0.1      </span></span>
-<span id="cb11-13"><a href="#cb11-13" tabindex="-1"></a><span class="co">#&gt; ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──</span></span>
-<span id="cb11-14"><a href="#cb11-14" tabindex="-1"></a><span class="co">#&gt; ✖ dplyr::filter() masks stats::filter()</span></span>
-<span id="cb11-15"><a href="#cb11-15" tabindex="-1"></a><span class="co">#&gt; ✖ dplyr::lag()    masks stats::lag()</span></span>
-<span id="cb11-16"><a href="#cb11-16" tabindex="-1"></a><span class="co">#&gt; ℹ Use the ]8;;http://conflicted.r-lib.org/conflicted package]8;; to force all conflicts to become errors</span></span>
-<span id="cb11-17"><a href="#cb11-17" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
-<span id="cb11-18"><a href="#cb11-18" tabindex="-1"></a><span class="fu">library</span>(estimatr)</span>
-<span id="cb11-19"><a href="#cb11-19" tabindex="-1"></a><span class="co">#&gt; Warning: 패키지 &#39;estimatr&#39;는 R 버전 4.2.3에서 작성되었습니다</span></span>
-<span id="cb11-20"><a href="#cb11-20" tabindex="-1"></a><span class="fu">library</span>(plm)</span>
-<span id="cb11-21"><a href="#cb11-21" tabindex="-1"></a><span class="co">#&gt; Warning: 패키지 &#39;plm&#39;는 R 버전 4.2.3에서 작성되었습니다</span></span>
-<span id="cb11-22"><a href="#cb11-22" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb11-23"><a href="#cb11-23" tabindex="-1"></a><span class="co">#&gt; 다음의 패키지를 부착합니다: &#39;plm&#39;</span></span>
-<span id="cb11-24"><a href="#cb11-24" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb11-25"><a href="#cb11-25" tabindex="-1"></a><span class="co">#&gt; The following objects are masked from &#39;package:dplyr&#39;:</span></span>
-<span id="cb11-26"><a href="#cb11-26" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb11-27"><a href="#cb11-27" tabindex="-1"></a><span class="co">#&gt;     between, lag, lead</span></span>
-<span id="cb11-28"><a href="#cb11-28" tabindex="-1"></a></span>
-<span id="cb11-29"><a href="#cb11-29" tabindex="-1"></a></span>
-<span id="cb11-30"><a href="#cb11-30" tabindex="-1"></a>read_data <span class="ot">&lt;-</span> <span class="cf">function</span>(df)</span>
-<span id="cb11-31"><a href="#cb11-31" tabindex="-1"></a>{</span>
-<span id="cb11-32"><a href="#cb11-32" tabindex="-1"></a>  full_path <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">&quot;https://github.com/scunning1975/mixtape/raw/master/&quot;</span>, </span>
-<span id="cb11-33"><a href="#cb11-33" tabindex="-1"></a>                     df, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span>
-<span id="cb11-34"><a href="#cb11-34" tabindex="-1"></a>  df <span class="ot">&lt;-</span> <span class="fu">read_dta</span>(full_path)</span>
-<span id="cb11-35"><a href="#cb11-35" tabindex="-1"></a>  <span class="fu">return</span>(df)</span>
-<span id="cb11-36"><a href="#cb11-36" tabindex="-1"></a>}</span>
-<span id="cb11-37"><a href="#cb11-37" tabindex="-1"></a></span>
-<span id="cb11-38"><a href="#cb11-38" tabindex="-1"></a>sasp <span class="ot">&lt;-</span> <span class="fu">read_data</span>(<span class="st">&quot;sasp_panel.dta&quot;</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a><span class="co">#&gt; ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──</span></span>
+<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a><span class="co">#&gt; ✔ dplyr     1.1.2     ✔ readr     2.1.4</span></span>
+<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a><span class="co">#&gt; ✔ forcats   1.0.0     ✔ stringr   1.5.0</span></span>
+<span id="cb11-5"><a href="#cb11-5" tabindex="-1"></a><span class="co">#&gt; ✔ ggplot2   3.4.2     ✔ tibble    3.2.1</span></span>
+<span id="cb11-6"><a href="#cb11-6" tabindex="-1"></a><span class="co">#&gt; ✔ lubridate 1.9.2     ✔ tidyr     1.3.0</span></span>
+<span id="cb11-7"><a href="#cb11-7" tabindex="-1"></a><span class="co">#&gt; ✔ purrr     1.0.1     </span></span>
+<span id="cb11-8"><a href="#cb11-8" tabindex="-1"></a><span class="co">#&gt; ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──</span></span>
+<span id="cb11-9"><a href="#cb11-9" tabindex="-1"></a><span class="co">#&gt; ✖ dplyr::filter() masks stats::filter()</span></span>
+<span id="cb11-10"><a href="#cb11-10" tabindex="-1"></a><span class="co">#&gt; ✖ dplyr::lag()    masks stats::lag()</span></span>
+<span id="cb11-11"><a href="#cb11-11" tabindex="-1"></a><span class="co">#&gt; ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</span></span>
+<span id="cb11-12"><a href="#cb11-12" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
+<span id="cb11-13"><a href="#cb11-13" tabindex="-1"></a><span class="fu">library</span>(estimatr)</span>
+<span id="cb11-14"><a href="#cb11-14" tabindex="-1"></a><span class="fu">library</span>(plm)</span>
+<span id="cb11-15"><a href="#cb11-15" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb11-16"><a href="#cb11-16" tabindex="-1"></a><span class="co">#&gt; 다음의 패키지를 부착합니다: &#39;plm&#39;</span></span>
+<span id="cb11-17"><a href="#cb11-17" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb11-18"><a href="#cb11-18" tabindex="-1"></a><span class="co">#&gt; The following objects are masked from &#39;package:dplyr&#39;:</span></span>
+<span id="cb11-19"><a href="#cb11-19" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb11-20"><a href="#cb11-20" tabindex="-1"></a><span class="co">#&gt;     between, lag, lead</span></span>
+<span id="cb11-21"><a href="#cb11-21" tabindex="-1"></a></span>
+<span id="cb11-22"><a href="#cb11-22" tabindex="-1"></a></span>
+<span id="cb11-23"><a href="#cb11-23" tabindex="-1"></a>read_data <span class="ot">&lt;-</span> <span class="cf">function</span>(df)</span>
+<span id="cb11-24"><a href="#cb11-24" tabindex="-1"></a>{</span>
+<span id="cb11-25"><a href="#cb11-25" tabindex="-1"></a>  full_path <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">&quot;https://github.com/scunning1975/mixtape/raw/master/&quot;</span>, </span>
+<span id="cb11-26"><a href="#cb11-26" tabindex="-1"></a>                     df, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb11-27"><a href="#cb11-27" tabindex="-1"></a>  df <span class="ot">&lt;-</span> <span class="fu">read_dta</span>(full_path)</span>
+<span id="cb11-28"><a href="#cb11-28" tabindex="-1"></a>  <span class="fu">return</span>(df)</span>
+<span id="cb11-29"><a href="#cb11-29" tabindex="-1"></a>}</span>
+<span id="cb11-30"><a href="#cb11-30" tabindex="-1"></a></span>
+<span id="cb11-31"><a href="#cb11-31" tabindex="-1"></a>sasp <span class="ot">&lt;-</span> <span class="fu">read_data</span>(<span class="st">&quot;sasp_panel.dta&quot;</span>)</span>
+<span id="cb11-32"><a href="#cb11-32" tabindex="-1"></a></span>
+<span id="cb11-33"><a href="#cb11-33" tabindex="-1"></a><span class="co">#-- Delete all NA</span></span>
+<span id="cb11-34"><a href="#cb11-34" tabindex="-1"></a>sasp <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(sasp)</span>
+<span id="cb11-35"><a href="#cb11-35" tabindex="-1"></a></span>
+<span id="cb11-36"><a href="#cb11-36" tabindex="-1"></a><span class="co">#-- order by id and session </span></span>
+<span id="cb11-37"><a href="#cb11-37" tabindex="-1"></a>sasp <span class="ot">&lt;-</span> sasp <span class="sc">%&gt;%</span> </span>
+<span id="cb11-38"><a href="#cb11-38" tabindex="-1"></a>  <span class="fu">arrange</span>(id, session)</span>
 <span id="cb11-39"><a href="#cb11-39" tabindex="-1"></a></span>
-<span id="cb11-40"><a href="#cb11-40" tabindex="-1"></a><span class="co">#-- Delete all NA</span></span>
-<span id="cb11-41"><a href="#cb11-41" tabindex="-1"></a>sasp <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(sasp)</span>
-<span id="cb11-42"><a href="#cb11-42" tabindex="-1"></a></span>
-<span id="cb11-43"><a href="#cb11-43" tabindex="-1"></a><span class="co">#-- order by id and session </span></span>
-<span id="cb11-44"><a href="#cb11-44" tabindex="-1"></a>sasp <span class="ot">&lt;-</span> sasp <span class="sc">%&gt;%</span> </span>
-<span id="cb11-45"><a href="#cb11-45" tabindex="-1"></a>  <span class="fu">arrange</span>(id, session)</span>
-<span id="cb11-46"><a href="#cb11-46" tabindex="-1"></a></span>
-<span id="cb11-47"><a href="#cb11-47" tabindex="-1"></a><span class="co">#Balance Data</span></span>
-<span id="cb11-48"><a href="#cb11-48" tabindex="-1"></a>balanced_sasp <span class="ot">&lt;-</span> <span class="fu">make.pbalanced</span>(sasp, </span>
-<span id="cb11-49"><a href="#cb11-49" tabindex="-1"></a>                                <span class="at">balance.type =</span> <span class="st">&quot;shared.individuals&quot;</span>)</span>
-<span id="cb11-50"><a href="#cb11-50" tabindex="-1"></a></span>
-<span id="cb11-51"><a href="#cb11-51" tabindex="-1"></a><span class="co">#Demean Data</span></span>
-<span id="cb11-52"><a href="#cb11-52" tabindex="-1"></a>balanced_sasp <span class="ot">&lt;-</span> balanced_sasp <span class="sc">%&gt;%</span> <span class="fu">mutate</span>( </span>
-<span id="cb11-53"><a href="#cb11-53" tabindex="-1"></a>  <span class="at">demean_lnw =</span> lnw <span class="sc">-</span> <span class="fu">ave</span>(lnw, id),</span>
-<span id="cb11-54"><a href="#cb11-54" tabindex="-1"></a>  <span class="at">demean_age =</span> age <span class="sc">-</span> <span class="fu">ave</span>(age, id),</span>
-<span id="cb11-55"><a href="#cb11-55" tabindex="-1"></a>  <span class="at">demean_asq =</span> asq <span class="sc">-</span> <span class="fu">ave</span>(asq, id),</span>
-<span id="cb11-56"><a href="#cb11-56" tabindex="-1"></a>  <span class="at">demean_bmi =</span> bmi <span class="sc">-</span> <span class="fu">ave</span>(bmi, id),</span>
-<span id="cb11-57"><a href="#cb11-57" tabindex="-1"></a>  <span class="at">demean_hispanic =</span> hispanic <span class="sc">-</span> <span class="fu">ave</span>(hispanic, id),</span>
-<span id="cb11-58"><a href="#cb11-58" tabindex="-1"></a>  <span class="at">demean_black =</span> black <span class="sc">-</span> <span class="fu">ave</span>(black, id),</span>
-<span id="cb11-59"><a href="#cb11-59" tabindex="-1"></a>  <span class="at">demean_other =</span> other <span class="sc">-</span> <span class="fu">ave</span>(other, id),</span>
-<span id="cb11-60"><a href="#cb11-60" tabindex="-1"></a>  <span class="at">demean_asian =</span> asian <span class="sc">-</span> <span class="fu">ave</span>(asian, id),</span>
-<span id="cb11-61"><a href="#cb11-61" tabindex="-1"></a>  <span class="at">demean_schooling =</span> schooling <span class="sc">-</span> <span class="fu">ave</span>(schooling, id),</span>
-<span id="cb11-62"><a href="#cb11-62" tabindex="-1"></a>  <span class="at">demean_cohab =</span> cohab <span class="sc">-</span> <span class="fu">ave</span>(cohab, id),</span>
-<span id="cb11-63"><a href="#cb11-63" tabindex="-1"></a>  <span class="at">demean_married =</span> married <span class="sc">-</span> <span class="fu">ave</span>(married, id),</span>
-<span id="cb11-64"><a href="#cb11-64" tabindex="-1"></a>  <span class="at">demean_divorced =</span> divorced <span class="sc">-</span> <span class="fu">ave</span>(divorced, id),</span>
-<span id="cb11-65"><a href="#cb11-65" tabindex="-1"></a>  <span class="at">demean_separated =</span> separated <span class="sc">-</span> <span class="fu">ave</span>(separated, id),</span>
-<span id="cb11-66"><a href="#cb11-66" tabindex="-1"></a>  <span class="at">demean_age_cl =</span> age_cl <span class="sc">-</span> <span class="fu">ave</span>(age_cl, id),</span>
-<span id="cb11-67"><a href="#cb11-67" tabindex="-1"></a>  <span class="at">demean_unsafe =</span> unsafe <span class="sc">-</span> <span class="fu">ave</span>(unsafe, id),</span>
-<span id="cb11-68"><a href="#cb11-68" tabindex="-1"></a>  <span class="at">demean_llength =</span> llength <span class="sc">-</span> <span class="fu">ave</span>(llength, id),</span>
-<span id="cb11-69"><a href="#cb11-69" tabindex="-1"></a>  <span class="at">demean_reg =</span> reg <span class="sc">-</span> <span class="fu">ave</span>(reg, id),</span>
-<span id="cb11-70"><a href="#cb11-70" tabindex="-1"></a>  <span class="at">demean_asq_cl =</span> asq_cl <span class="sc">-</span> <span class="fu">ave</span>(asq_cl, id),</span>
-<span id="cb11-71"><a href="#cb11-71" tabindex="-1"></a>  <span class="at">demean_appearance_cl =</span> appearance_cl <span class="sc">-</span> <span class="fu">ave</span>(appearance_cl, id),</span>
-<span id="cb11-72"><a href="#cb11-72" tabindex="-1"></a>  <span class="at">demean_provider_second =</span> provider_second <span class="sc">-</span> <span class="fu">ave</span>(provider_second, id),</span>
-<span id="cb11-73"><a href="#cb11-73" tabindex="-1"></a>  <span class="at">demean_asian_cl =</span> asian_cl <span class="sc">-</span> <span class="fu">ave</span>(asian_cl, id),</span>
-<span id="cb11-74"><a href="#cb11-74" tabindex="-1"></a>  <span class="at">demean_black_cl =</span> black_cl <span class="sc">-</span> <span class="fu">ave</span>(black_cl, id),</span>
-<span id="cb11-75"><a href="#cb11-75" tabindex="-1"></a>  <span class="at">demean_hispanic_cl =</span> hispanic_cl <span class="sc">-</span> <span class="fu">ave</span>(hispanic_cl, id),</span>
-<span id="cb11-76"><a href="#cb11-76" tabindex="-1"></a>  <span class="at">demean_othrace_cl =</span> othrace_cl <span class="sc">-</span> <span class="fu">ave</span>(othrace_cl, id),</span>
-<span id="cb11-77"><a href="#cb11-77" tabindex="-1"></a>  <span class="at">demean_hot =</span> hot <span class="sc">-</span> <span class="fu">ave</span>(hot, id),</span>
-<span id="cb11-78"><a href="#cb11-78" tabindex="-1"></a>  <span class="at">demean_massage_cl =</span> massage_cl <span class="sc">-</span> <span class="fu">ave</span>(massage_cl, id)</span>
-<span id="cb11-79"><a href="#cb11-79" tabindex="-1"></a>  )</span>
-<span id="cb11-80"><a href="#cb11-80" tabindex="-1"></a></span>
-<span id="cb11-81"><a href="#cb11-81" tabindex="-1"></a><span class="co">#-- POLS</span></span>
-<span id="cb11-82"><a href="#cb11-82" tabindex="-1"></a>ols <span class="ot">&lt;-</span> <span class="fu">lm_robust</span>(lnw <span class="sc">~</span> age <span class="sc">+</span> asq <span class="sc">+</span> bmi <span class="sc">+</span> hispanic <span class="sc">+</span> black <span class="sc">+</span> other <span class="sc">+</span> asian <span class="sc">+</span> schooling <span class="sc">+</span> cohab <span class="sc">+</span> married <span class="sc">+</span> divorced <span class="sc">+</span> separated <span class="sc">+</span> </span>
-<span id="cb11-83"><a href="#cb11-83" tabindex="-1"></a>           age_cl <span class="sc">+</span> unsafe <span class="sc">+</span> llength <span class="sc">+</span> reg <span class="sc">+</span> asq_cl <span class="sc">+</span> appearance_cl <span class="sc">+</span> provider_second <span class="sc">+</span> asian_cl <span class="sc">+</span> black_cl <span class="sc">+</span> hispanic_cl <span class="sc">+</span> </span>
-<span id="cb11-84"><a href="#cb11-84" tabindex="-1"></a>           othrace_cl <span class="sc">+</span> hot <span class="sc">+</span> massage_cl, <span class="at">data =</span> balanced_sasp)</span>
-<span id="cb11-85"><a href="#cb11-85" tabindex="-1"></a><span class="fu">summary</span>(ols)</span>
+<span id="cb11-40"><a href="#cb11-40" tabindex="-1"></a><span class="co">#Balance Data</span></span>
+<span id="cb11-41"><a href="#cb11-41" tabindex="-1"></a>balanced_sasp <span class="ot">&lt;-</span> <span class="fu">make.pbalanced</span>(sasp, </span>
+<span id="cb11-42"><a href="#cb11-42" tabindex="-1"></a>                                <span class="at">balance.type =</span> <span class="st">&quot;shared.individuals&quot;</span>)</span>
+<span id="cb11-43"><a href="#cb11-43" tabindex="-1"></a></span>
+<span id="cb11-44"><a href="#cb11-44" tabindex="-1"></a><span class="co">#Demean Data</span></span>
+<span id="cb11-45"><a href="#cb11-45" tabindex="-1"></a>balanced_sasp <span class="ot">&lt;-</span> balanced_sasp <span class="sc">%&gt;%</span> <span class="fu">mutate</span>( </span>
+<span id="cb11-46"><a href="#cb11-46" tabindex="-1"></a>  <span class="at">demean_lnw =</span> lnw <span class="sc">-</span> <span class="fu">ave</span>(lnw, id),</span>
+<span id="cb11-47"><a href="#cb11-47" tabindex="-1"></a>  <span class="at">demean_age =</span> age <span class="sc">-</span> <span class="fu">ave</span>(age, id),</span>
+<span id="cb11-48"><a href="#cb11-48" tabindex="-1"></a>  <span class="at">demean_asq =</span> asq <span class="sc">-</span> <span class="fu">ave</span>(asq, id),</span>
+<span id="cb11-49"><a href="#cb11-49" tabindex="-1"></a>  <span class="at">demean_bmi =</span> bmi <span class="sc">-</span> <span class="fu">ave</span>(bmi, id),</span>
+<span id="cb11-50"><a href="#cb11-50" tabindex="-1"></a>  <span class="at">demean_hispanic =</span> hispanic <span class="sc">-</span> <span class="fu">ave</span>(hispanic, id),</span>
+<span id="cb11-51"><a href="#cb11-51" tabindex="-1"></a>  <span class="at">demean_black =</span> black <span class="sc">-</span> <span class="fu">ave</span>(black, id),</span>
+<span id="cb11-52"><a href="#cb11-52" tabindex="-1"></a>  <span class="at">demean_other =</span> other <span class="sc">-</span> <span class="fu">ave</span>(other, id),</span>
+<span id="cb11-53"><a href="#cb11-53" tabindex="-1"></a>  <span class="at">demean_asian =</span> asian <span class="sc">-</span> <span class="fu">ave</span>(asian, id),</span>
+<span id="cb11-54"><a href="#cb11-54" tabindex="-1"></a>  <span class="at">demean_schooling =</span> schooling <span class="sc">-</span> <span class="fu">ave</span>(schooling, id),</span>
+<span id="cb11-55"><a href="#cb11-55" tabindex="-1"></a>  <span class="at">demean_cohab =</span> cohab <span class="sc">-</span> <span class="fu">ave</span>(cohab, id),</span>
+<span id="cb11-56"><a href="#cb11-56" tabindex="-1"></a>  <span class="at">demean_married =</span> married <span class="sc">-</span> <span class="fu">ave</span>(married, id),</span>
+<span id="cb11-57"><a href="#cb11-57" tabindex="-1"></a>  <span class="at">demean_divorced =</span> divorced <span class="sc">-</span> <span class="fu">ave</span>(divorced, id),</span>
+<span id="cb11-58"><a href="#cb11-58" tabindex="-1"></a>  <span class="at">demean_separated =</span> separated <span class="sc">-</span> <span class="fu">ave</span>(separated, id),</span>
+<span id="cb11-59"><a href="#cb11-59" tabindex="-1"></a>  <span class="at">demean_age_cl =</span> age_cl <span class="sc">-</span> <span class="fu">ave</span>(age_cl, id),</span>
+<span id="cb11-60"><a href="#cb11-60" tabindex="-1"></a>  <span class="at">demean_unsafe =</span> unsafe <span class="sc">-</span> <span class="fu">ave</span>(unsafe, id),</span>
+<span id="cb11-61"><a href="#cb11-61" tabindex="-1"></a>  <span class="at">demean_llength =</span> llength <span class="sc">-</span> <span class="fu">ave</span>(llength, id),</span>
+<span id="cb11-62"><a href="#cb11-62" tabindex="-1"></a>  <span class="at">demean_reg =</span> reg <span class="sc">-</span> <span class="fu">ave</span>(reg, id),</span>
+<span id="cb11-63"><a href="#cb11-63" tabindex="-1"></a>  <span class="at">demean_asq_cl =</span> asq_cl <span class="sc">-</span> <span class="fu">ave</span>(asq_cl, id),</span>
+<span id="cb11-64"><a href="#cb11-64" tabindex="-1"></a>  <span class="at">demean_appearance_cl =</span> appearance_cl <span class="sc">-</span> <span class="fu">ave</span>(appearance_cl, id),</span>
+<span id="cb11-65"><a href="#cb11-65" tabindex="-1"></a>  <span class="at">demean_provider_second =</span> provider_second <span class="sc">-</span> <span class="fu">ave</span>(provider_second, id),</span>
+<span id="cb11-66"><a href="#cb11-66" tabindex="-1"></a>  <span class="at">demean_asian_cl =</span> asian_cl <span class="sc">-</span> <span class="fu">ave</span>(asian_cl, id),</span>
+<span id="cb11-67"><a href="#cb11-67" tabindex="-1"></a>  <span class="at">demean_black_cl =</span> black_cl <span class="sc">-</span> <span class="fu">ave</span>(black_cl, id),</span>
+<span id="cb11-68"><a href="#cb11-68" tabindex="-1"></a>  <span class="at">demean_hispanic_cl =</span> hispanic_cl <span class="sc">-</span> <span class="fu">ave</span>(hispanic_cl, id),</span>
+<span id="cb11-69"><a href="#cb11-69" tabindex="-1"></a>  <span class="at">demean_othrace_cl =</span> othrace_cl <span class="sc">-</span> <span class="fu">ave</span>(othrace_cl, id),</span>
+<span id="cb11-70"><a href="#cb11-70" tabindex="-1"></a>  <span class="at">demean_hot =</span> hot <span class="sc">-</span> <span class="fu">ave</span>(hot, id),</span>
+<span id="cb11-71"><a href="#cb11-71" tabindex="-1"></a>  <span class="at">demean_massage_cl =</span> massage_cl <span class="sc">-</span> <span class="fu">ave</span>(massage_cl, id)</span>
+<span id="cb11-72"><a href="#cb11-72" tabindex="-1"></a>  )</span>
+<span id="cb11-73"><a href="#cb11-73" tabindex="-1"></a></span>
+<span id="cb11-74"><a href="#cb11-74" tabindex="-1"></a><span class="co">#-- POLS</span></span>
+<span id="cb11-75"><a href="#cb11-75" tabindex="-1"></a>ols <span class="ot">&lt;-</span> <span class="fu">lm_robust</span>(lnw <span class="sc">~</span> age <span class="sc">+</span> asq <span class="sc">+</span> bmi <span class="sc">+</span> hispanic <span class="sc">+</span> black <span class="sc">+</span> other <span class="sc">+</span> asian <span class="sc">+</span> schooling <span class="sc">+</span> cohab <span class="sc">+</span> married <span class="sc">+</span> divorced <span class="sc">+</span> separated <span class="sc">+</span> </span>
+<span id="cb11-76"><a href="#cb11-76" tabindex="-1"></a>           age_cl <span class="sc">+</span> unsafe <span class="sc">+</span> llength <span class="sc">+</span> reg <span class="sc">+</span> asq_cl <span class="sc">+</span> appearance_cl <span class="sc">+</span> provider_second <span class="sc">+</span> asian_cl <span class="sc">+</span> black_cl <span class="sc">+</span> hispanic_cl <span class="sc">+</span> </span>
+<span id="cb11-77"><a href="#cb11-77" tabindex="-1"></a>           othrace_cl <span class="sc">+</span> hot <span class="sc">+</span> massage_cl, <span class="at">data =</span> balanced_sasp)</span>
+<span id="cb11-78"><a href="#cb11-78" tabindex="-1"></a><span class="fu">summary</span>(ols)</span>
+<span id="cb11-79"><a href="#cb11-79" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb11-80"><a href="#cb11-80" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
+<span id="cb11-81"><a href="#cb11-81" tabindex="-1"></a><span class="co">#&gt; lm_robust(formula = lnw ~ age + asq + bmi + hispanic + black + </span></span>
+<span id="cb11-82"><a href="#cb11-82" tabindex="-1"></a><span class="co">#&gt;     other + asian + schooling + cohab + married + divorced + </span></span>
+<span id="cb11-83"><a href="#cb11-83" tabindex="-1"></a><span class="co">#&gt;     separated + age_cl + unsafe + llength + reg + asq_cl + appearance_cl + </span></span>
+<span id="cb11-84"><a href="#cb11-84" tabindex="-1"></a><span class="co">#&gt;     provider_second + asian_cl + black_cl + hispanic_cl + othrace_cl + </span></span>
+<span id="cb11-85"><a href="#cb11-85" tabindex="-1"></a><span class="co">#&gt;     hot + massage_cl, data = balanced_sasp)</span></span>
 <span id="cb11-86"><a href="#cb11-86" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb11-87"><a href="#cb11-87" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
-<span id="cb11-88"><a href="#cb11-88" tabindex="-1"></a><span class="co">#&gt; lm_robust(formula = lnw ~ age + asq + bmi + hispanic + black + </span></span>
-<span id="cb11-89"><a href="#cb11-89" tabindex="-1"></a><span class="co">#&gt;     other + asian + schooling + cohab + married + divorced + </span></span>
-<span id="cb11-90"><a href="#cb11-90" tabindex="-1"></a><span class="co">#&gt;     separated + age_cl + unsafe + llength + reg + asq_cl + appearance_cl + </span></span>
-<span id="cb11-91"><a href="#cb11-91" tabindex="-1"></a><span class="co">#&gt;     provider_second + asian_cl + black_cl + hispanic_cl + othrace_cl + </span></span>
-<span id="cb11-92"><a href="#cb11-92" tabindex="-1"></a><span class="co">#&gt;     hot + massage_cl, data = balanced_sasp)</span></span>
-<span id="cb11-93"><a href="#cb11-93" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb11-94"><a href="#cb11-94" tabindex="-1"></a><span class="co">#&gt; Standard error type:  HC2 </span></span>
-<span id="cb11-95"><a href="#cb11-95" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb11-96"><a href="#cb11-96" tabindex="-1"></a><span class="co">#&gt; Coefficients:</span></span>
-<span id="cb11-97"><a href="#cb11-97" tabindex="-1"></a><span class="co">#&gt;                   Estimate Std. Error  t value  Pr(&gt;|t|)   CI Lower   CI Upper</span></span>
-<span id="cb11-98"><a href="#cb11-98" tabindex="-1"></a><span class="co">#&gt; (Intercept)      7.007e+00  0.3411810  20.5383 1.651e-78  6.3377753  7.6767975</span></span>
-<span id="cb11-99"><a href="#cb11-99" tabindex="-1"></a><span class="co">#&gt; age              2.753e-03  0.0116454   0.2364 8.132e-01 -0.0200995  0.0256049</span></span>
-<span id="cb11-100"><a href="#cb11-100" tabindex="-1"></a><span class="co">#&gt; asq             -1.282e-04  0.0001567  -0.8185 4.133e-01 -0.0004357  0.0001792</span></span>
-<span id="cb11-101"><a href="#cb11-101" tabindex="-1"></a><span class="co">#&gt; bmi             -2.170e-02  0.0022856  -9.4922 1.598e-20 -0.0261809 -0.0172105</span></span>
-<span id="cb11-102"><a href="#cb11-102" tabindex="-1"></a><span class="co">#&gt; hispanic        -2.259e-01  0.0831269  -2.7172 6.697e-03 -0.3889938 -0.0627484</span></span>
-<span id="cb11-103"><a href="#cb11-103" tabindex="-1"></a><span class="co">#&gt; black            2.837e-02  0.0646957   0.4385 6.611e-01 -0.0985874  0.1553218</span></span>
-<span id="cb11-104"><a href="#cb11-104" tabindex="-1"></a><span class="co">#&gt; other           -1.116e-01  0.0770601  -1.4478 1.480e-01 -0.2627867  0.0396486</span></span>
-<span id="cb11-105"><a href="#cb11-105" tabindex="-1"></a><span class="co">#&gt; asian            8.624e-02  0.1672203   0.5157 6.062e-01 -0.2419043  0.4143801</span></span>
-<span id="cb11-106"><a href="#cb11-106" tabindex="-1"></a><span class="co">#&gt; schooling        1.983e-02  0.0096769   2.0488 4.074e-02  0.0008369  0.0388153</span></span>
-<span id="cb11-107"><a href="#cb11-107" tabindex="-1"></a><span class="co">#&gt; cohab           -5.403e-02  0.0364184  -1.4837 1.382e-01 -0.1254993  0.0174308</span></span>
-<span id="cb11-108"><a href="#cb11-108" tabindex="-1"></a><span class="co">#&gt; married          4.648e-03  0.0433493   0.1072 9.146e-01 -0.0804175  0.0897140</span></span>
-<span id="cb11-109"><a href="#cb11-109" tabindex="-1"></a><span class="co">#&gt; divorced        -2.093e-02  0.0379808  -0.5511 5.817e-01 -0.0954610  0.0536012</span></span>
-<span id="cb11-110"><a href="#cb11-110" tabindex="-1"></a><span class="co">#&gt; separated       -5.570e-02  0.0590483  -0.9432 3.458e-01 -0.1715677  0.0601771</span></span>
-<span id="cb11-111"><a href="#cb11-111" tabindex="-1"></a><span class="co">#&gt; age_cl          -1.334e-03  0.0094627  -0.1409 8.879e-01 -0.0199026  0.0172353</span></span>
-<span id="cb11-112"><a href="#cb11-112" tabindex="-1"></a><span class="co">#&gt; unsafe           1.341e-02  0.0283086   0.4736 6.359e-01 -0.0421435  0.0689583</span></span>
-<span id="cb11-113"><a href="#cb11-113" tabindex="-1"></a><span class="co">#&gt; llength         -3.083e-01  0.0283516 -10.8724 4.187e-26 -0.3638861 -0.2526154</span></span>
-<span id="cb11-114"><a href="#cb11-114" tabindex="-1"></a><span class="co">#&gt; reg             -4.701e-02  0.0280975  -1.6730 9.464e-02 -0.1021441  0.0081291</span></span>
-<span id="cb11-115"><a href="#cb11-115" tabindex="-1"></a><span class="co">#&gt; asq_cl           4.401e-05  0.0001011   0.4354 6.633e-01 -0.0001543  0.0002424</span></span>
-<span id="cb11-116"><a href="#cb11-116" tabindex="-1"></a><span class="co">#&gt; appearance_cl    2.002e-02  0.0075200   2.6619 7.895e-03  0.0052607  0.0347742</span></span>
-<span id="cb11-117"><a href="#cb11-117" tabindex="-1"></a><span class="co">#&gt; provider_second  5.537e-02  0.0678610   0.8159 4.148e-01 -0.0778007  0.1885310</span></span>
-<span id="cb11-118"><a href="#cb11-118" tabindex="-1"></a><span class="co">#&gt; asian_cl        -1.354e-02  0.0490779  -0.2759 7.827e-01 -0.1098464  0.0827680</span></span>
-<span id="cb11-119"><a href="#cb11-119" tabindex="-1"></a><span class="co">#&gt; black_cl         9.189e-02  0.0731389   1.2563 2.093e-01 -0.0516373  0.2354086</span></span>
-<span id="cb11-120"><a href="#cb11-120" tabindex="-1"></a><span class="co">#&gt; hispanic_cl      5.165e-02  0.0810797   0.6370 5.243e-01 -0.1074554  0.2107557</span></span>
-<span id="cb11-121"><a href="#cb11-121" tabindex="-1"></a><span class="co">#&gt; othrace_cl       1.558e-01  0.0687954   2.2649 2.373e-02  0.0208171  0.2908160</span></span>
-<span id="cb11-122"><a href="#cb11-122" tabindex="-1"></a><span class="co">#&gt; hot              1.332e-01  0.0288595   4.6140 4.462e-06  0.0765247  0.1897886</span></span>
-<span id="cb11-123"><a href="#cb11-123" tabindex="-1"></a><span class="co">#&gt; massage_cl      -1.338e-01  0.0291366  -4.5932 4.919e-06 -0.1910071 -0.0766556</span></span>
-<span id="cb11-124"><a href="#cb11-124" tabindex="-1"></a><span class="co">#&gt;                   DF</span></span>
-<span id="cb11-125"><a href="#cb11-125" tabindex="-1"></a><span class="co">#&gt; (Intercept)     1002</span></span>
-<span id="cb11-126"><a href="#cb11-126" tabindex="-1"></a><span class="co">#&gt; age             1002</span></span>
-<span id="cb11-127"><a href="#cb11-127" tabindex="-1"></a><span class="co">#&gt; asq             1002</span></span>
-<span id="cb11-128"><a href="#cb11-128" tabindex="-1"></a><span class="co">#&gt; bmi             1002</span></span>
-<span id="cb11-129"><a href="#cb11-129" tabindex="-1"></a><span class="co">#&gt; hispanic        1002</span></span>
-<span id="cb11-130"><a href="#cb11-130" tabindex="-1"></a><span class="co">#&gt; black           1002</span></span>
-<span id="cb11-131"><a href="#cb11-131" tabindex="-1"></a><span class="co">#&gt; other           1002</span></span>
-<span id="cb11-132"><a href="#cb11-132" tabindex="-1"></a><span class="co">#&gt; asian           1002</span></span>
-<span id="cb11-133"><a href="#cb11-133" tabindex="-1"></a><span class="co">#&gt; schooling       1002</span></span>
-<span id="cb11-134"><a href="#cb11-134" tabindex="-1"></a><span class="co">#&gt; cohab           1002</span></span>
-<span id="cb11-135"><a href="#cb11-135" tabindex="-1"></a><span class="co">#&gt; married         1002</span></span>
-<span id="cb11-136"><a href="#cb11-136" tabindex="-1"></a><span class="co">#&gt; divorced        1002</span></span>
-<span id="cb11-137"><a href="#cb11-137" tabindex="-1"></a><span class="co">#&gt; separated       1002</span></span>
-<span id="cb11-138"><a href="#cb11-138" tabindex="-1"></a><span class="co">#&gt; age_cl          1002</span></span>
-<span id="cb11-139"><a href="#cb11-139" tabindex="-1"></a><span class="co">#&gt; unsafe          1002</span></span>
-<span id="cb11-140"><a href="#cb11-140" tabindex="-1"></a><span class="co">#&gt; llength         1002</span></span>
-<span id="cb11-141"><a href="#cb11-141" tabindex="-1"></a><span class="co">#&gt; reg             1002</span></span>
-<span id="cb11-142"><a href="#cb11-142" tabindex="-1"></a><span class="co">#&gt; asq_cl          1002</span></span>
-<span id="cb11-143"><a href="#cb11-143" tabindex="-1"></a><span class="co">#&gt; appearance_cl   1002</span></span>
-<span id="cb11-144"><a href="#cb11-144" tabindex="-1"></a><span class="co">#&gt; provider_second 1002</span></span>
-<span id="cb11-145"><a href="#cb11-145" tabindex="-1"></a><span class="co">#&gt; asian_cl        1002</span></span>
-<span id="cb11-146"><a href="#cb11-146" tabindex="-1"></a><span class="co">#&gt; black_cl        1002</span></span>
-<span id="cb11-147"><a href="#cb11-147" tabindex="-1"></a><span class="co">#&gt; hispanic_cl     1002</span></span>
-<span id="cb11-148"><a href="#cb11-148" tabindex="-1"></a><span class="co">#&gt; othrace_cl      1002</span></span>
-<span id="cb11-149"><a href="#cb11-149" tabindex="-1"></a><span class="co">#&gt; hot             1002</span></span>
-<span id="cb11-150"><a href="#cb11-150" tabindex="-1"></a><span class="co">#&gt; massage_cl      1002</span></span>
-<span id="cb11-151"><a href="#cb11-151" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb11-152"><a href="#cb11-152" tabindex="-1"></a><span class="co">#&gt; Multiple R-squared:  0.3026 ,    Adjusted R-squared:  0.2852 </span></span>
-<span id="cb11-153"><a href="#cb11-153" tabindex="-1"></a><span class="co">#&gt; F-statistic: 13.17 on 25 and 1002 DF,  p-value: &lt; 2.2e-16</span></span>
-<span id="cb11-154"><a href="#cb11-154" tabindex="-1"></a></span>
+<span id="cb11-87"><a href="#cb11-87" tabindex="-1"></a><span class="co">#&gt; Standard error type:  HC2 </span></span>
+<span id="cb11-88"><a href="#cb11-88" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb11-89"><a href="#cb11-89" tabindex="-1"></a><span class="co">#&gt; Coefficients:</span></span>
+<span id="cb11-90"><a href="#cb11-90" tabindex="-1"></a><span class="co">#&gt;                   Estimate Std. Error  t value  Pr(&gt;|t|)   CI Lower   CI Upper</span></span>
+<span id="cb11-91"><a href="#cb11-91" tabindex="-1"></a><span class="co">#&gt; (Intercept)      7.007e+00  0.3411810  20.5383 1.651e-78  6.3377753  7.6767975</span></span>
+<span id="cb11-92"><a href="#cb11-92" tabindex="-1"></a><span class="co">#&gt; age              2.753e-03  0.0116454   0.2364 8.132e-01 -0.0200995  0.0256049</span></span>
+<span id="cb11-93"><a href="#cb11-93" tabindex="-1"></a><span class="co">#&gt; asq             -1.282e-04  0.0001567  -0.8185 4.133e-01 -0.0004357  0.0001792</span></span>
+<span id="cb11-94"><a href="#cb11-94" tabindex="-1"></a><span class="co">#&gt; bmi             -2.170e-02  0.0022856  -9.4922 1.598e-20 -0.0261809 -0.0172105</span></span>
+<span id="cb11-95"><a href="#cb11-95" tabindex="-1"></a><span class="co">#&gt; hispanic        -2.259e-01  0.0831269  -2.7172 6.697e-03 -0.3889938 -0.0627484</span></span>
+<span id="cb11-96"><a href="#cb11-96" tabindex="-1"></a><span class="co">#&gt; black            2.837e-02  0.0646957   0.4385 6.611e-01 -0.0985874  0.1553218</span></span>
+<span id="cb11-97"><a href="#cb11-97" tabindex="-1"></a><span class="co">#&gt; other           -1.116e-01  0.0770601  -1.4478 1.480e-01 -0.2627867  0.0396486</span></span>
+<span id="cb11-98"><a href="#cb11-98" tabindex="-1"></a><span class="co">#&gt; asian            8.624e-02  0.1672203   0.5157 6.062e-01 -0.2419043  0.4143801</span></span>
+<span id="cb11-99"><a href="#cb11-99" tabindex="-1"></a><span class="co">#&gt; schooling        1.983e-02  0.0096769   2.0488 4.074e-02  0.0008369  0.0388153</span></span>
+<span id="cb11-100"><a href="#cb11-100" tabindex="-1"></a><span class="co">#&gt; cohab           -5.403e-02  0.0364184  -1.4837 1.382e-01 -0.1254993  0.0174308</span></span>
+<span id="cb11-101"><a href="#cb11-101" tabindex="-1"></a><span class="co">#&gt; married          4.648e-03  0.0433493   0.1072 9.146e-01 -0.0804175  0.0897140</span></span>
+<span id="cb11-102"><a href="#cb11-102" tabindex="-1"></a><span class="co">#&gt; divorced        -2.093e-02  0.0379808  -0.5511 5.817e-01 -0.0954610  0.0536012</span></span>
+<span id="cb11-103"><a href="#cb11-103" tabindex="-1"></a><span class="co">#&gt; separated       -5.570e-02  0.0590483  -0.9432 3.458e-01 -0.1715677  0.0601771</span></span>
+<span id="cb11-104"><a href="#cb11-104" tabindex="-1"></a><span class="co">#&gt; age_cl          -1.334e-03  0.0094627  -0.1409 8.879e-01 -0.0199026  0.0172353</span></span>
+<span id="cb11-105"><a href="#cb11-105" tabindex="-1"></a><span class="co">#&gt; unsafe           1.341e-02  0.0283086   0.4736 6.359e-01 -0.0421435  0.0689583</span></span>
+<span id="cb11-106"><a href="#cb11-106" tabindex="-1"></a><span class="co">#&gt; llength         -3.083e-01  0.0283516 -10.8724 4.187e-26 -0.3638861 -0.2526154</span></span>
+<span id="cb11-107"><a href="#cb11-107" tabindex="-1"></a><span class="co">#&gt; reg             -4.701e-02  0.0280975  -1.6730 9.464e-02 -0.1021441  0.0081291</span></span>
+<span id="cb11-108"><a href="#cb11-108" tabindex="-1"></a><span class="co">#&gt; asq_cl           4.401e-05  0.0001011   0.4354 6.633e-01 -0.0001543  0.0002424</span></span>
+<span id="cb11-109"><a href="#cb11-109" tabindex="-1"></a><span class="co">#&gt; appearance_cl    2.002e-02  0.0075200   2.6619 7.895e-03  0.0052607  0.0347742</span></span>
+<span id="cb11-110"><a href="#cb11-110" tabindex="-1"></a><span class="co">#&gt; provider_second  5.537e-02  0.0678610   0.8159 4.148e-01 -0.0778007  0.1885310</span></span>
+<span id="cb11-111"><a href="#cb11-111" tabindex="-1"></a><span class="co">#&gt; asian_cl        -1.354e-02  0.0490779  -0.2759 7.827e-01 -0.1098464  0.0827680</span></span>
+<span id="cb11-112"><a href="#cb11-112" tabindex="-1"></a><span class="co">#&gt; black_cl         9.189e-02  0.0731389   1.2563 2.093e-01 -0.0516373  0.2354086</span></span>
+<span id="cb11-113"><a href="#cb11-113" tabindex="-1"></a><span class="co">#&gt; hispanic_cl      5.165e-02  0.0810797   0.6370 5.243e-01 -0.1074554  0.2107557</span></span>
+<span id="cb11-114"><a href="#cb11-114" tabindex="-1"></a><span class="co">#&gt; othrace_cl       1.558e-01  0.0687954   2.2649 2.373e-02  0.0208171  0.2908160</span></span>
+<span id="cb11-115"><a href="#cb11-115" tabindex="-1"></a><span class="co">#&gt; hot              1.332e-01  0.0288595   4.6140 4.462e-06  0.0765247  0.1897886</span></span>
+<span id="cb11-116"><a href="#cb11-116" tabindex="-1"></a><span class="co">#&gt; massage_cl      -1.338e-01  0.0291366  -4.5932 4.919e-06 -0.1910071 -0.0766556</span></span>
+<span id="cb11-117"><a href="#cb11-117" tabindex="-1"></a><span class="co">#&gt;                   DF</span></span>
+<span id="cb11-118"><a href="#cb11-118" tabindex="-1"></a><span class="co">#&gt; (Intercept)     1002</span></span>
+<span id="cb11-119"><a href="#cb11-119" tabindex="-1"></a><span class="co">#&gt; age             1002</span></span>
+<span id="cb11-120"><a href="#cb11-120" tabindex="-1"></a><span class="co">#&gt; asq             1002</span></span>
+<span id="cb11-121"><a href="#cb11-121" tabindex="-1"></a><span class="co">#&gt; bmi             1002</span></span>
+<span id="cb11-122"><a href="#cb11-122" tabindex="-1"></a><span class="co">#&gt; hispanic        1002</span></span>
+<span id="cb11-123"><a href="#cb11-123" tabindex="-1"></a><span class="co">#&gt; black           1002</span></span>
+<span id="cb11-124"><a href="#cb11-124" tabindex="-1"></a><span class="co">#&gt; other           1002</span></span>
+<span id="cb11-125"><a href="#cb11-125" tabindex="-1"></a><span class="co">#&gt; asian           1002</span></span>
+<span id="cb11-126"><a href="#cb11-126" tabindex="-1"></a><span class="co">#&gt; schooling       1002</span></span>
+<span id="cb11-127"><a href="#cb11-127" tabindex="-1"></a><span class="co">#&gt; cohab           1002</span></span>
+<span id="cb11-128"><a href="#cb11-128" tabindex="-1"></a><span class="co">#&gt; married         1002</span></span>
+<span id="cb11-129"><a href="#cb11-129" tabindex="-1"></a><span class="co">#&gt; divorced        1002</span></span>
+<span id="cb11-130"><a href="#cb11-130" tabindex="-1"></a><span class="co">#&gt; separated       1002</span></span>
+<span id="cb11-131"><a href="#cb11-131" tabindex="-1"></a><span class="co">#&gt; age_cl          1002</span></span>
+<span id="cb11-132"><a href="#cb11-132" tabindex="-1"></a><span class="co">#&gt; unsafe          1002</span></span>
+<span id="cb11-133"><a href="#cb11-133" tabindex="-1"></a><span class="co">#&gt; llength         1002</span></span>
+<span id="cb11-134"><a href="#cb11-134" tabindex="-1"></a><span class="co">#&gt; reg             1002</span></span>
+<span id="cb11-135"><a href="#cb11-135" tabindex="-1"></a><span class="co">#&gt; asq_cl          1002</span></span>
+<span id="cb11-136"><a href="#cb11-136" tabindex="-1"></a><span class="co">#&gt; appearance_cl   1002</span></span>
+<span id="cb11-137"><a href="#cb11-137" tabindex="-1"></a><span class="co">#&gt; provider_second 1002</span></span>
+<span id="cb11-138"><a href="#cb11-138" tabindex="-1"></a><span class="co">#&gt; asian_cl        1002</span></span>
+<span id="cb11-139"><a href="#cb11-139" tabindex="-1"></a><span class="co">#&gt; black_cl        1002</span></span>
+<span id="cb11-140"><a href="#cb11-140" tabindex="-1"></a><span class="co">#&gt; hispanic_cl     1002</span></span>
+<span id="cb11-141"><a href="#cb11-141" tabindex="-1"></a><span class="co">#&gt; othrace_cl      1002</span></span>
+<span id="cb11-142"><a href="#cb11-142" tabindex="-1"></a><span class="co">#&gt; hot             1002</span></span>
+<span id="cb11-143"><a href="#cb11-143" tabindex="-1"></a><span class="co">#&gt; massage_cl      1002</span></span>
+<span id="cb11-144"><a href="#cb11-144" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb11-145"><a href="#cb11-145" tabindex="-1"></a><span class="co">#&gt; Multiple R-squared:  0.3026 ,    Adjusted R-squared:  0.2852 </span></span>
+<span id="cb11-146"><a href="#cb11-146" tabindex="-1"></a><span class="co">#&gt; F-statistic: 13.17 on 25 and 1002 DF,  p-value: &lt; 2.2e-16</span></span>
+<span id="cb11-147"><a href="#cb11-147" tabindex="-1"></a></span>
+<span id="cb11-148"><a href="#cb11-148" tabindex="-1"></a></span>
+<span id="cb11-149"><a href="#cb11-149" tabindex="-1"></a><span class="co">#-- FE</span></span>
+<span id="cb11-150"><a href="#cb11-150" tabindex="-1"></a>formula <span class="ot">&lt;-</span> <span class="fu">as.formula</span>(<span class="st">&quot;lnw ~ age + asq + bmi + hispanic + black + other + asian + schooling + </span></span>
+<span id="cb11-151"><a href="#cb11-151" tabindex="-1"></a><span class="st">                      cohab + married + divorced + separated + </span></span>
+<span id="cb11-152"><a href="#cb11-152" tabindex="-1"></a><span class="st">                      age_cl + unsafe + llength + reg + asq_cl + appearance_cl + </span></span>
+<span id="cb11-153"><a href="#cb11-153" tabindex="-1"></a><span class="st">                      provider_second + asian_cl + black_cl + hispanic_cl + </span></span>
+<span id="cb11-154"><a href="#cb11-154" tabindex="-1"></a><span class="st">                      othrace_cl + hot + massage_cl&quot;</span>)</span>
 <span id="cb11-155"><a href="#cb11-155" tabindex="-1"></a></span>
-<span id="cb11-156"><a href="#cb11-156" tabindex="-1"></a><span class="co">#-- FE</span></span>
-<span id="cb11-157"><a href="#cb11-157" tabindex="-1"></a>formula <span class="ot">&lt;-</span> <span class="fu">as.formula</span>(<span class="st">&quot;lnw ~ age + asq + bmi + hispanic + black + other + asian + schooling + </span></span>
-<span id="cb11-158"><a href="#cb11-158" tabindex="-1"></a><span class="st">                      cohab + married + divorced + separated + </span></span>
-<span id="cb11-159"><a href="#cb11-159" tabindex="-1"></a><span class="st">                      age_cl + unsafe + llength + reg + asq_cl + appearance_cl + </span></span>
-<span id="cb11-160"><a href="#cb11-160" tabindex="-1"></a><span class="st">                      provider_second + asian_cl + black_cl + hispanic_cl + </span></span>
-<span id="cb11-161"><a href="#cb11-161" tabindex="-1"></a><span class="st">                      othrace_cl + hot + massage_cl&quot;</span>)</span>
-<span id="cb11-162"><a href="#cb11-162" tabindex="-1"></a></span>
-<span id="cb11-163"><a href="#cb11-163" tabindex="-1"></a>model_fe <span class="ot">&lt;-</span> <span class="fu">lm_robust</span>(<span class="at">formula =</span> formula,</span>
-<span id="cb11-164"><a href="#cb11-164" tabindex="-1"></a>                  <span class="at">data =</span> balanced_sasp, </span>
-<span id="cb11-165"><a href="#cb11-165" tabindex="-1"></a>                  <span class="at">fixed_effect =</span> <span class="sc">~</span>id, </span>
-<span id="cb11-166"><a href="#cb11-166" tabindex="-1"></a>                  <span class="at">se_type =</span> <span class="st">&quot;stata&quot;</span>)</span>
-<span id="cb11-167"><a href="#cb11-167" tabindex="-1"></a></span>
-<span id="cb11-168"><a href="#cb11-168" tabindex="-1"></a><span class="fu">summary</span>(model_fe)</span>
-<span id="cb11-169"><a href="#cb11-169" tabindex="-1"></a><span class="co">#&gt; 12 coefficients  not defined because the design matrix is rank deficient</span></span>
-<span id="cb11-170"><a href="#cb11-170" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb11-171"><a href="#cb11-171" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
-<span id="cb11-172"><a href="#cb11-172" tabindex="-1"></a><span class="co">#&gt; lm_robust(formula = formula, data = balanced_sasp, fixed_effects = ~id, </span></span>
-<span id="cb11-173"><a href="#cb11-173" tabindex="-1"></a><span class="co">#&gt;     se_type = &quot;stata&quot;)</span></span>
-<span id="cb11-174"><a href="#cb11-174" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb11-175"><a href="#cb11-175" tabindex="-1"></a><span class="co">#&gt; Standard error type:  HC1 </span></span>
-<span id="cb11-176"><a href="#cb11-176" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb11-177"><a href="#cb11-177" tabindex="-1"></a><span class="co">#&gt; Coefficients: (12 not defined because the design matrix is rank deficient)</span></span>
-<span id="cb11-178"><a href="#cb11-178" tabindex="-1"></a><span class="co">#&gt;                   Estimate Std. Error   t value  Pr(&gt;|t|)   CI Lower   CI Upper</span></span>
-<span id="cb11-179"><a href="#cb11-179" tabindex="-1"></a><span class="co">#&gt; age                     NA         NA        NA        NA         NA         NA</span></span>
-<span id="cb11-180"><a href="#cb11-180" tabindex="-1"></a><span class="co">#&gt; asq                     NA         NA        NA        NA         NA         NA</span></span>
-<span id="cb11-181"><a href="#cb11-181" tabindex="-1"></a><span class="co">#&gt; bmi                     NA         NA        NA        NA         NA         NA</span></span>
-<span id="cb11-182"><a href="#cb11-182" tabindex="-1"></a><span class="co">#&gt; hispanic                NA         NA        NA        NA         NA         NA</span></span>
-<span id="cb11-183"><a href="#cb11-183" tabindex="-1"></a><span class="co">#&gt; black                   NA         NA        NA        NA         NA         NA</span></span>
-<span id="cb11-184"><a href="#cb11-184" tabindex="-1"></a><span class="co">#&gt; other                   NA         NA        NA        NA         NA         NA</span></span>
-<span id="cb11-185"><a href="#cb11-185" tabindex="-1"></a><span class="co">#&gt; asian                   NA         NA        NA        NA         NA         NA</span></span>
-<span id="cb11-186"><a href="#cb11-186" tabindex="-1"></a><span class="co">#&gt; schooling               NA         NA        NA        NA         NA         NA</span></span>
-<span id="cb11-187"><a href="#cb11-187" tabindex="-1"></a><span class="co">#&gt; cohab                   NA         NA        NA        NA         NA         NA</span></span>
-<span id="cb11-188"><a href="#cb11-188" tabindex="-1"></a><span class="co">#&gt; married                 NA         NA        NA        NA         NA         NA</span></span>
-<span id="cb11-189"><a href="#cb11-189" tabindex="-1"></a><span class="co">#&gt; divorced                NA         NA        NA        NA         NA         NA</span></span>
-<span id="cb11-190"><a href="#cb11-190" tabindex="-1"></a><span class="co">#&gt; separated               NA         NA        NA        NA         NA         NA</span></span>
-<span id="cb11-191"><a href="#cb11-191" tabindex="-1"></a><span class="co">#&gt; age_cl           0.0023054  6.393e-03   0.36059 7.185e-01 -0.0102454  0.0148562</span></span>
-<span id="cb11-192"><a href="#cb11-192" tabindex="-1"></a><span class="co">#&gt; unsafe           0.0510339  2.996e-02   1.70356 8.887e-02 -0.0077752  0.1098429</span></span>
-<span id="cb11-193"><a href="#cb11-193" tabindex="-1"></a><span class="co">#&gt; llength         -0.4345064  2.147e-02 -20.24132 3.655e-73 -0.4766469 -0.3923659</span></span>
-<span id="cb11-194"><a href="#cb11-194" tabindex="-1"></a><span class="co">#&gt; reg             -0.0373412  1.941e-02  -1.92334 5.481e-02 -0.0754544  0.0007720</span></span>
-<span id="cb11-195"><a href="#cb11-195" tabindex="-1"></a><span class="co">#&gt; asq_cl          -0.0000147  7.006e-05  -0.20984 8.338e-01 -0.0001522  0.0001228</span></span>
-<span id="cb11-196"><a href="#cb11-196" tabindex="-1"></a><span class="co">#&gt; appearance_cl    0.0056350  5.483e-03   1.02774 3.044e-01 -0.0051285  0.0163985</span></span>
-<span id="cb11-197"><a href="#cb11-197" tabindex="-1"></a><span class="co">#&gt; provider_second  0.1131373  5.577e-02   2.02847 4.286e-02  0.0036463  0.2226283</span></span>
-<span id="cb11-198"><a href="#cb11-198" tabindex="-1"></a><span class="co">#&gt; asian_cl        -0.0098734  3.474e-02  -0.28419 7.763e-01 -0.0780755  0.0583288</span></span>
-<span id="cb11-199"><a href="#cb11-199" tabindex="-1"></a><span class="co">#&gt; black_cl         0.0265076  4.224e-02   0.62755 5.305e-01 -0.0564139  0.1094291</span></span>
-<span id="cb11-200"><a href="#cb11-200" tabindex="-1"></a><span class="co">#&gt; hispanic_cl     -0.0620880  5.168e-02  -1.20133 2.300e-01 -0.1635466  0.0393706</span></span>
-<span id="cb11-201"><a href="#cb11-201" tabindex="-1"></a><span class="co">#&gt; othrace_cl       0.1421711  5.193e-02   2.73764 6.333e-03  0.0402235  0.2441187</span></span>
-<span id="cb11-202"><a href="#cb11-202" tabindex="-1"></a><span class="co">#&gt; hot              0.0524782  2.718e-02   1.93041 5.393e-02 -0.0008886  0.1058450</span></span>
-<span id="cb11-203"><a href="#cb11-203" tabindex="-1"></a><span class="co">#&gt; massage_cl      -0.0010344  2.718e-02  -0.03805 9.697e-01 -0.0543960  0.0523273</span></span>
-<span id="cb11-204"><a href="#cb11-204" tabindex="-1"></a><span class="co">#&gt;                  DF</span></span>
-<span id="cb11-205"><a href="#cb11-205" tabindex="-1"></a><span class="co">#&gt; age              NA</span></span>
-<span id="cb11-206"><a href="#cb11-206" tabindex="-1"></a><span class="co">#&gt; asq              NA</span></span>
-<span id="cb11-207"><a href="#cb11-207" tabindex="-1"></a><span class="co">#&gt; bmi              NA</span></span>
-<span id="cb11-208"><a href="#cb11-208" tabindex="-1"></a><span class="co">#&gt; hispanic         NA</span></span>
-<span id="cb11-209"><a href="#cb11-209" tabindex="-1"></a><span class="co">#&gt; black            NA</span></span>
-<span id="cb11-210"><a href="#cb11-210" tabindex="-1"></a><span class="co">#&gt; other            NA</span></span>
-<span id="cb11-211"><a href="#cb11-211" tabindex="-1"></a><span class="co">#&gt; asian            NA</span></span>
-<span id="cb11-212"><a href="#cb11-212" tabindex="-1"></a><span class="co">#&gt; schooling        NA</span></span>
-<span id="cb11-213"><a href="#cb11-213" tabindex="-1"></a><span class="co">#&gt; cohab            NA</span></span>
-<span id="cb11-214"><a href="#cb11-214" tabindex="-1"></a><span class="co">#&gt; married          NA</span></span>
-<span id="cb11-215"><a href="#cb11-215" tabindex="-1"></a><span class="co">#&gt; divorced         NA</span></span>
-<span id="cb11-216"><a href="#cb11-216" tabindex="-1"></a><span class="co">#&gt; separated        NA</span></span>
-<span id="cb11-217"><a href="#cb11-217" tabindex="-1"></a><span class="co">#&gt; age_cl          758</span></span>
-<span id="cb11-218"><a href="#cb11-218" tabindex="-1"></a><span class="co">#&gt; unsafe          758</span></span>
-<span id="cb11-219"><a href="#cb11-219" tabindex="-1"></a><span class="co">#&gt; llength         758</span></span>
-<span id="cb11-220"><a href="#cb11-220" tabindex="-1"></a><span class="co">#&gt; reg             758</span></span>
-<span id="cb11-221"><a href="#cb11-221" tabindex="-1"></a><span class="co">#&gt; asq_cl          758</span></span>
-<span id="cb11-222"><a href="#cb11-222" tabindex="-1"></a><span class="co">#&gt; appearance_cl   758</span></span>
-<span id="cb11-223"><a href="#cb11-223" tabindex="-1"></a><span class="co">#&gt; provider_second 758</span></span>
-<span id="cb11-224"><a href="#cb11-224" tabindex="-1"></a><span class="co">#&gt; asian_cl        758</span></span>
-<span id="cb11-225"><a href="#cb11-225" tabindex="-1"></a><span class="co">#&gt; black_cl        758</span></span>
-<span id="cb11-226"><a href="#cb11-226" tabindex="-1"></a><span class="co">#&gt; hispanic_cl     758</span></span>
-<span id="cb11-227"><a href="#cb11-227" tabindex="-1"></a><span class="co">#&gt; othrace_cl      758</span></span>
-<span id="cb11-228"><a href="#cb11-228" tabindex="-1"></a><span class="co">#&gt; hot             758</span></span>
-<span id="cb11-229"><a href="#cb11-229" tabindex="-1"></a><span class="co">#&gt; massage_cl      758</span></span>
-<span id="cb11-230"><a href="#cb11-230" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb11-231"><a href="#cb11-231" tabindex="-1"></a><span class="co">#&gt; Multiple R-squared:  0.8322 ,    Adjusted R-squared:  0.7727</span></span>
-<span id="cb11-232"><a href="#cb11-232" tabindex="-1"></a><span class="co">#&gt; Multiple R-squared (proj. model):  0.516 ,   Adjusted R-squared (proj. model):  0.3442 </span></span>
-<span id="cb11-233"><a href="#cb11-233" tabindex="-1"></a><span class="co">#&gt; F-statistic (proj. model):    NA on 13 and 758 DF,  p-value: NA</span></span>
-<span id="cb11-234"><a href="#cb11-234" tabindex="-1"></a></span>
-<span id="cb11-235"><a href="#cb11-235" tabindex="-1"></a><span class="co">#-- Demean OLS</span></span>
-<span id="cb11-236"><a href="#cb11-236" tabindex="-1"></a>dm_formula <span class="ot">&lt;-</span> <span class="fu">as.formula</span>(<span class="st">&quot;demean_lnw ~ demean_age + demean_asq + demean_bmi + </span></span>
-<span id="cb11-237"><a href="#cb11-237" tabindex="-1"></a><span class="st">                demean_hispanic + demean_black + demean_other +</span></span>
-<span id="cb11-238"><a href="#cb11-238" tabindex="-1"></a><span class="st">                demean_asian + demean_schooling + demean_cohab + </span></span>
-<span id="cb11-239"><a href="#cb11-239" tabindex="-1"></a><span class="st">                demean_married + demean_divorced + demean_separated +</span></span>
-<span id="cb11-240"><a href="#cb11-240" tabindex="-1"></a><span class="st">                demean_age_cl + demean_unsafe + demean_llength + demean_reg + </span></span>
-<span id="cb11-241"><a href="#cb11-241" tabindex="-1"></a><span class="st">                demean_asq_cl + demean_appearance_cl + </span></span>
-<span id="cb11-242"><a href="#cb11-242" tabindex="-1"></a><span class="st">                demean_provider_second + demean_asian_cl + demean_black_cl + </span></span>
-<span id="cb11-243"><a href="#cb11-243" tabindex="-1"></a><span class="st">                demean_hispanic_cl + demean_othrace_cl +</span></span>
-<span id="cb11-244"><a href="#cb11-244" tabindex="-1"></a><span class="st">                demean_hot + demean_massage_cl&quot;</span>)</span>
-<span id="cb11-245"><a href="#cb11-245" tabindex="-1"></a></span>
-<span id="cb11-246"><a href="#cb11-246" tabindex="-1"></a>ols_demean <span class="ot">&lt;-</span> <span class="fu">lm_robust</span>(<span class="at">formula =</span> dm_formula, </span>
-<span id="cb11-247"><a href="#cb11-247" tabindex="-1"></a>                <span class="at">data =</span> balanced_sasp, <span class="at">clusters =</span> id,</span>
-<span id="cb11-248"><a href="#cb11-248" tabindex="-1"></a>                <span class="at">se_type =</span> <span class="st">&quot;stata&quot;</span>)</span>
-<span id="cb11-249"><a href="#cb11-249" tabindex="-1"></a></span>
-<span id="cb11-250"><a href="#cb11-250" tabindex="-1"></a><span class="fu">summary</span>(ols_demean)</span>
-<span id="cb11-251"><a href="#cb11-251" tabindex="-1"></a><span class="co">#&gt; 12 coefficients  not defined because the design matrix is rank deficient</span></span>
-<span id="cb11-252"><a href="#cb11-252" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb11-253"><a href="#cb11-253" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
-<span id="cb11-254"><a href="#cb11-254" tabindex="-1"></a><span class="co">#&gt; lm_robust(formula = dm_formula, data = balanced_sasp, clusters = id, </span></span>
-<span id="cb11-255"><a href="#cb11-255" tabindex="-1"></a><span class="co">#&gt;     se_type = &quot;stata&quot;)</span></span>
-<span id="cb11-256"><a href="#cb11-256" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb11-257"><a href="#cb11-257" tabindex="-1"></a><span class="co">#&gt; Standard error type:  stata </span></span>
-<span id="cb11-258"><a href="#cb11-258" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb11-259"><a href="#cb11-259" tabindex="-1"></a><span class="co">#&gt; Coefficients: (12 not defined because the design matrix is rank deficient)</span></span>
-<span id="cb11-260"><a href="#cb11-260" tabindex="-1"></a><span class="co">#&gt;                          Estimate Std. Error  t value  Pr(&gt;|t|)   CI Lower</span></span>
-<span id="cb11-261"><a href="#cb11-261" tabindex="-1"></a><span class="co">#&gt; (Intercept)             1.822e-18  1.239e-18   1.4699 1.428e-01 -6.189e-19</span></span>
-<span id="cb11-262"><a href="#cb11-262" tabindex="-1"></a><span class="co">#&gt; demean_age                     NA         NA       NA        NA         NA</span></span>
-<span id="cb11-263"><a href="#cb11-263" tabindex="-1"></a><span class="co">#&gt; demean_asq                     NA         NA       NA        NA         NA</span></span>
-<span id="cb11-264"><a href="#cb11-264" tabindex="-1"></a><span class="co">#&gt; demean_bmi                     NA         NA       NA        NA         NA</span></span>
-<span id="cb11-265"><a href="#cb11-265" tabindex="-1"></a><span class="co">#&gt; demean_hispanic                NA         NA       NA        NA         NA</span></span>
-<span id="cb11-266"><a href="#cb11-266" tabindex="-1"></a><span class="co">#&gt; demean_black                   NA         NA       NA        NA         NA</span></span>
-<span id="cb11-267"><a href="#cb11-267" tabindex="-1"></a><span class="co">#&gt; demean_other                   NA         NA       NA        NA         NA</span></span>
-<span id="cb11-268"><a href="#cb11-268" tabindex="-1"></a><span class="co">#&gt; demean_asian                   NA         NA       NA        NA         NA</span></span>
-<span id="cb11-269"><a href="#cb11-269" tabindex="-1"></a><span class="co">#&gt; demean_schooling               NA         NA       NA        NA         NA</span></span>
-<span id="cb11-270"><a href="#cb11-270" tabindex="-1"></a><span class="co">#&gt; demean_cohab                   NA         NA       NA        NA         NA</span></span>
-<span id="cb11-271"><a href="#cb11-271" tabindex="-1"></a><span class="co">#&gt; demean_married                 NA         NA       NA        NA         NA</span></span>
-<span id="cb11-272"><a href="#cb11-272" tabindex="-1"></a><span class="co">#&gt; demean_divorced                NA         NA       NA        NA         NA</span></span>
-<span id="cb11-273"><a href="#cb11-273" tabindex="-1"></a><span class="co">#&gt; demean_separated               NA         NA       NA        NA         NA</span></span>
-<span id="cb11-274"><a href="#cb11-274" tabindex="-1"></a><span class="co">#&gt; demean_age_cl           2.305e-03  6.776e-03   0.3402 7.340e-01 -1.104e-02</span></span>
-<span id="cb11-275"><a href="#cb11-275" tabindex="-1"></a><span class="co">#&gt; demean_unsafe           5.103e-02  2.828e-02   1.8044 7.234e-02 -4.663e-03</span></span>
-<span id="cb11-276"><a href="#cb11-276" tabindex="-1"></a><span class="co">#&gt; demean_llength         -4.345e-01  2.432e-02 -17.8642 6.739e-47 -4.824e-01</span></span>
-<span id="cb11-277"><a href="#cb11-277" tabindex="-1"></a><span class="co">#&gt; demean_reg             -3.734e-02  1.876e-02  -1.9904 4.761e-02 -7.429e-02</span></span>
-<span id="cb11-278"><a href="#cb11-278" tabindex="-1"></a><span class="co">#&gt; demean_asq_cl          -1.470e-05  7.550e-05  -0.1947 8.458e-01 -1.634e-04</span></span>
-<span id="cb11-279"><a href="#cb11-279" tabindex="-1"></a><span class="co">#&gt; demean_appearance_cl    5.635e-03  5.803e-03   0.9711 3.324e-01 -5.792e-03</span></span>
-<span id="cb11-280"><a href="#cb11-280" tabindex="-1"></a><span class="co">#&gt; demean_provider_second  1.131e-01  6.040e-02   1.8731 6.219e-02 -5.808e-03</span></span>
-<span id="cb11-281"><a href="#cb11-281" tabindex="-1"></a><span class="co">#&gt; demean_asian_cl        -9.873e-03  3.383e-02  -0.2918 7.706e-01 -7.650e-02</span></span>
-<span id="cb11-282"><a href="#cb11-282" tabindex="-1"></a><span class="co">#&gt; demean_black_cl         2.651e-02  4.234e-02   0.6261 5.318e-01 -5.687e-02</span></span>
-<span id="cb11-283"><a href="#cb11-283" tabindex="-1"></a><span class="co">#&gt; demean_hispanic_cl     -6.209e-02  5.172e-02  -1.2006 2.310e-01 -1.639e-01</span></span>
-<span id="cb11-284"><a href="#cb11-284" tabindex="-1"></a><span class="co">#&gt; demean_othrace_cl       1.422e-01  4.929e-02   2.8846 4.253e-03  4.511e-02</span></span>
-<span id="cb11-285"><a href="#cb11-285" tabindex="-1"></a><span class="co">#&gt; demean_hot              5.248e-02  2.711e-02   1.9358 5.399e-02 -9.062e-04</span></span>
-<span id="cb11-286"><a href="#cb11-286" tabindex="-1"></a><span class="co">#&gt; demean_massage_cl      -1.034e-03  2.780e-02  -0.0372 9.704e-01 -5.579e-02</span></span>
-<span id="cb11-287"><a href="#cb11-287" tabindex="-1"></a><span class="co">#&gt;                          CI Upper  DF</span></span>
-<span id="cb11-288"><a href="#cb11-288" tabindex="-1"></a><span class="co">#&gt; (Intercept)             4.262e-18 256</span></span>
-<span id="cb11-289"><a href="#cb11-289" tabindex="-1"></a><span class="co">#&gt; demean_age                     NA  NA</span></span>
-<span id="cb11-290"><a href="#cb11-290" tabindex="-1"></a><span class="co">#&gt; demean_asq                     NA  NA</span></span>
-<span id="cb11-291"><a href="#cb11-291" tabindex="-1"></a><span class="co">#&gt; demean_bmi                     NA  NA</span></span>
-<span id="cb11-292"><a href="#cb11-292" tabindex="-1"></a><span class="co">#&gt; demean_hispanic                NA  NA</span></span>
-<span id="cb11-293"><a href="#cb11-293" tabindex="-1"></a><span class="co">#&gt; demean_black                   NA  NA</span></span>
-<span id="cb11-294"><a href="#cb11-294" tabindex="-1"></a><span class="co">#&gt; demean_other                   NA  NA</span></span>
-<span id="cb11-295"><a href="#cb11-295" tabindex="-1"></a><span class="co">#&gt; demean_asian                   NA  NA</span></span>
-<span id="cb11-296"><a href="#cb11-296" tabindex="-1"></a><span class="co">#&gt; demean_schooling               NA  NA</span></span>
-<span id="cb11-297"><a href="#cb11-297" tabindex="-1"></a><span class="co">#&gt; demean_cohab                   NA  NA</span></span>
-<span id="cb11-298"><a href="#cb11-298" tabindex="-1"></a><span class="co">#&gt; demean_married                 NA  NA</span></span>
-<span id="cb11-299"><a href="#cb11-299" tabindex="-1"></a><span class="co">#&gt; demean_divorced                NA  NA</span></span>
-<span id="cb11-300"><a href="#cb11-300" tabindex="-1"></a><span class="co">#&gt; demean_separated               NA  NA</span></span>
-<span id="cb11-301"><a href="#cb11-301" tabindex="-1"></a><span class="co">#&gt; demean_age_cl           1.565e-02 256</span></span>
-<span id="cb11-302"><a href="#cb11-302" tabindex="-1"></a><span class="co">#&gt; demean_unsafe           1.067e-01 256</span></span>
-<span id="cb11-303"><a href="#cb11-303" tabindex="-1"></a><span class="co">#&gt; demean_llength         -3.866e-01 256</span></span>
-<span id="cb11-304"><a href="#cb11-304" tabindex="-1"></a><span class="co">#&gt; demean_reg             -3.962e-04 256</span></span>
-<span id="cb11-305"><a href="#cb11-305" tabindex="-1"></a><span class="co">#&gt; demean_asq_cl           1.340e-04 256</span></span>
-<span id="cb11-306"><a href="#cb11-306" tabindex="-1"></a><span class="co">#&gt; demean_appearance_cl    1.706e-02 256</span></span>
-<span id="cb11-307"><a href="#cb11-307" tabindex="-1"></a><span class="co">#&gt; demean_provider_second  2.321e-01 256</span></span>
-<span id="cb11-308"><a href="#cb11-308" tabindex="-1"></a><span class="co">#&gt; demean_asian_cl         5.675e-02 256</span></span>
-<span id="cb11-309"><a href="#cb11-309" tabindex="-1"></a><span class="co">#&gt; demean_black_cl         1.099e-01 256</span></span>
-<span id="cb11-310"><a href="#cb11-310" tabindex="-1"></a><span class="co">#&gt; demean_hispanic_cl      3.975e-02 256</span></span>
-<span id="cb11-311"><a href="#cb11-311" tabindex="-1"></a><span class="co">#&gt; demean_othrace_cl       2.392e-01 256</span></span>
-<span id="cb11-312"><a href="#cb11-312" tabindex="-1"></a><span class="co">#&gt; demean_hot              1.059e-01 256</span></span>
-<span id="cb11-313"><a href="#cb11-313" tabindex="-1"></a><span class="co">#&gt; demean_massage_cl       5.372e-02 256</span></span>
-<span id="cb11-314"><a href="#cb11-314" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb11-315"><a href="#cb11-315" tabindex="-1"></a><span class="co">#&gt; Multiple R-squared:  0.516 , Adjusted R-squared:  0.5098 </span></span>
-<span id="cb11-316"><a href="#cb11-316" tabindex="-1"></a><span class="co">#&gt; F-statistic:    NA on 13 and 256 DF,  p-value: NA</span></span></code></pre></div>
+<span id="cb11-156"><a href="#cb11-156" tabindex="-1"></a>model_fe <span class="ot">&lt;-</span> <span class="fu">lm_robust</span>(<span class="at">formula =</span> formula,</span>
+<span id="cb11-157"><a href="#cb11-157" tabindex="-1"></a>                  <span class="at">data =</span> balanced_sasp, </span>
+<span id="cb11-158"><a href="#cb11-158" tabindex="-1"></a>                  <span class="at">fixed_effect =</span> <span class="sc">~</span>id, </span>
+<span id="cb11-159"><a href="#cb11-159" tabindex="-1"></a>                  <span class="at">se_type =</span> <span class="st">&quot;stata&quot;</span>)</span>
+<span id="cb11-160"><a href="#cb11-160" tabindex="-1"></a></span>
+<span id="cb11-161"><a href="#cb11-161" tabindex="-1"></a><span class="fu">summary</span>(model_fe)</span>
+<span id="cb11-162"><a href="#cb11-162" tabindex="-1"></a><span class="co">#&gt; 12 coefficients  not defined because the design matrix is rank deficient</span></span>
+<span id="cb11-163"><a href="#cb11-163" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb11-164"><a href="#cb11-164" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
+<span id="cb11-165"><a href="#cb11-165" tabindex="-1"></a><span class="co">#&gt; lm_robust(formula = formula, data = balanced_sasp, fixed_effects = ~id, </span></span>
+<span id="cb11-166"><a href="#cb11-166" tabindex="-1"></a><span class="co">#&gt;     se_type = &quot;stata&quot;)</span></span>
+<span id="cb11-167"><a href="#cb11-167" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb11-168"><a href="#cb11-168" tabindex="-1"></a><span class="co">#&gt; Standard error type:  HC1 </span></span>
+<span id="cb11-169"><a href="#cb11-169" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb11-170"><a href="#cb11-170" tabindex="-1"></a><span class="co">#&gt; Coefficients: (12 not defined because the design matrix is rank deficient)</span></span>
+<span id="cb11-171"><a href="#cb11-171" tabindex="-1"></a><span class="co">#&gt;                   Estimate Std. Error   t value  Pr(&gt;|t|)   CI Lower   CI Upper</span></span>
+<span id="cb11-172"><a href="#cb11-172" tabindex="-1"></a><span class="co">#&gt; age                     NA         NA        NA        NA         NA         NA</span></span>
+<span id="cb11-173"><a href="#cb11-173" tabindex="-1"></a><span class="co">#&gt; asq                     NA         NA        NA        NA         NA         NA</span></span>
+<span id="cb11-174"><a href="#cb11-174" tabindex="-1"></a><span class="co">#&gt; bmi                     NA         NA        NA        NA         NA         NA</span></span>
+<span id="cb11-175"><a href="#cb11-175" tabindex="-1"></a><span class="co">#&gt; hispanic                NA         NA        NA        NA         NA         NA</span></span>
+<span id="cb11-176"><a href="#cb11-176" tabindex="-1"></a><span class="co">#&gt; black                   NA         NA        NA        NA         NA         NA</span></span>
+<span id="cb11-177"><a href="#cb11-177" tabindex="-1"></a><span class="co">#&gt; other                   NA         NA        NA        NA         NA         NA</span></span>
+<span id="cb11-178"><a href="#cb11-178" tabindex="-1"></a><span class="co">#&gt; asian                   NA         NA        NA        NA         NA         NA</span></span>
+<span id="cb11-179"><a href="#cb11-179" tabindex="-1"></a><span class="co">#&gt; schooling               NA         NA        NA        NA         NA         NA</span></span>
+<span id="cb11-180"><a href="#cb11-180" tabindex="-1"></a><span class="co">#&gt; cohab                   NA         NA        NA        NA         NA         NA</span></span>
+<span id="cb11-181"><a href="#cb11-181" tabindex="-1"></a><span class="co">#&gt; married                 NA         NA        NA        NA         NA         NA</span></span>
+<span id="cb11-182"><a href="#cb11-182" tabindex="-1"></a><span class="co">#&gt; divorced                NA         NA        NA        NA         NA         NA</span></span>
+<span id="cb11-183"><a href="#cb11-183" tabindex="-1"></a><span class="co">#&gt; separated               NA         NA        NA        NA         NA         NA</span></span>
+<span id="cb11-184"><a href="#cb11-184" tabindex="-1"></a><span class="co">#&gt; age_cl           0.0023054  6.393e-03   0.36059 7.185e-01 -0.0102454  0.0148562</span></span>
+<span id="cb11-185"><a href="#cb11-185" tabindex="-1"></a><span class="co">#&gt; unsafe           0.0510339  2.996e-02   1.70356 8.887e-02 -0.0077752  0.1098429</span></span>
+<span id="cb11-186"><a href="#cb11-186" tabindex="-1"></a><span class="co">#&gt; llength         -0.4345064  2.147e-02 -20.24132 3.655e-73 -0.4766469 -0.3923659</span></span>
+<span id="cb11-187"><a href="#cb11-187" tabindex="-1"></a><span class="co">#&gt; reg             -0.0373412  1.941e-02  -1.92334 5.481e-02 -0.0754544  0.0007720</span></span>
+<span id="cb11-188"><a href="#cb11-188" tabindex="-1"></a><span class="co">#&gt; asq_cl          -0.0000147  7.006e-05  -0.20984 8.338e-01 -0.0001522  0.0001228</span></span>
+<span id="cb11-189"><a href="#cb11-189" tabindex="-1"></a><span class="co">#&gt; appearance_cl    0.0056350  5.483e-03   1.02774 3.044e-01 -0.0051285  0.0163985</span></span>
+<span id="cb11-190"><a href="#cb11-190" tabindex="-1"></a><span class="co">#&gt; provider_second  0.1131373  5.577e-02   2.02847 4.286e-02  0.0036463  0.2226283</span></span>
+<span id="cb11-191"><a href="#cb11-191" tabindex="-1"></a><span class="co">#&gt; asian_cl        -0.0098734  3.474e-02  -0.28419 7.763e-01 -0.0780755  0.0583288</span></span>
+<span id="cb11-192"><a href="#cb11-192" tabindex="-1"></a><span class="co">#&gt; black_cl         0.0265076  4.224e-02   0.62755 5.305e-01 -0.0564139  0.1094291</span></span>
+<span id="cb11-193"><a href="#cb11-193" tabindex="-1"></a><span class="co">#&gt; hispanic_cl     -0.0620880  5.168e-02  -1.20133 2.300e-01 -0.1635466  0.0393706</span></span>
+<span id="cb11-194"><a href="#cb11-194" tabindex="-1"></a><span class="co">#&gt; othrace_cl       0.1421711  5.193e-02   2.73764 6.333e-03  0.0402235  0.2441187</span></span>
+<span id="cb11-195"><a href="#cb11-195" tabindex="-1"></a><span class="co">#&gt; hot              0.0524782  2.718e-02   1.93041 5.393e-02 -0.0008886  0.1058450</span></span>
+<span id="cb11-196"><a href="#cb11-196" tabindex="-1"></a><span class="co">#&gt; massage_cl      -0.0010344  2.718e-02  -0.03805 9.697e-01 -0.0543960  0.0523273</span></span>
+<span id="cb11-197"><a href="#cb11-197" tabindex="-1"></a><span class="co">#&gt;                  DF</span></span>
+<span id="cb11-198"><a href="#cb11-198" tabindex="-1"></a><span class="co">#&gt; age              NA</span></span>
+<span id="cb11-199"><a href="#cb11-199" tabindex="-1"></a><span class="co">#&gt; asq              NA</span></span>
+<span id="cb11-200"><a href="#cb11-200" tabindex="-1"></a><span class="co">#&gt; bmi              NA</span></span>
+<span id="cb11-201"><a href="#cb11-201" tabindex="-1"></a><span class="co">#&gt; hispanic         NA</span></span>
+<span id="cb11-202"><a href="#cb11-202" tabindex="-1"></a><span class="co">#&gt; black            NA</span></span>
+<span id="cb11-203"><a href="#cb11-203" tabindex="-1"></a><span class="co">#&gt; other            NA</span></span>
+<span id="cb11-204"><a href="#cb11-204" tabindex="-1"></a><span class="co">#&gt; asian            NA</span></span>
+<span id="cb11-205"><a href="#cb11-205" tabindex="-1"></a><span class="co">#&gt; schooling        NA</span></span>
+<span id="cb11-206"><a href="#cb11-206" tabindex="-1"></a><span class="co">#&gt; cohab            NA</span></span>
+<span id="cb11-207"><a href="#cb11-207" tabindex="-1"></a><span class="co">#&gt; married          NA</span></span>
+<span id="cb11-208"><a href="#cb11-208" tabindex="-1"></a><span class="co">#&gt; divorced         NA</span></span>
+<span id="cb11-209"><a href="#cb11-209" tabindex="-1"></a><span class="co">#&gt; separated        NA</span></span>
+<span id="cb11-210"><a href="#cb11-210" tabindex="-1"></a><span class="co">#&gt; age_cl          758</span></span>
+<span id="cb11-211"><a href="#cb11-211" tabindex="-1"></a><span class="co">#&gt; unsafe          758</span></span>
+<span id="cb11-212"><a href="#cb11-212" tabindex="-1"></a><span class="co">#&gt; llength         758</span></span>
+<span id="cb11-213"><a href="#cb11-213" tabindex="-1"></a><span class="co">#&gt; reg             758</span></span>
+<span id="cb11-214"><a href="#cb11-214" tabindex="-1"></a><span class="co">#&gt; asq_cl          758</span></span>
+<span id="cb11-215"><a href="#cb11-215" tabindex="-1"></a><span class="co">#&gt; appearance_cl   758</span></span>
+<span id="cb11-216"><a href="#cb11-216" tabindex="-1"></a><span class="co">#&gt; provider_second 758</span></span>
+<span id="cb11-217"><a href="#cb11-217" tabindex="-1"></a><span class="co">#&gt; asian_cl        758</span></span>
+<span id="cb11-218"><a href="#cb11-218" tabindex="-1"></a><span class="co">#&gt; black_cl        758</span></span>
+<span id="cb11-219"><a href="#cb11-219" tabindex="-1"></a><span class="co">#&gt; hispanic_cl     758</span></span>
+<span id="cb11-220"><a href="#cb11-220" tabindex="-1"></a><span class="co">#&gt; othrace_cl      758</span></span>
+<span id="cb11-221"><a href="#cb11-221" tabindex="-1"></a><span class="co">#&gt; hot             758</span></span>
+<span id="cb11-222"><a href="#cb11-222" tabindex="-1"></a><span class="co">#&gt; massage_cl      758</span></span>
+<span id="cb11-223"><a href="#cb11-223" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb11-224"><a href="#cb11-224" tabindex="-1"></a><span class="co">#&gt; Multiple R-squared:  0.8322 ,    Adjusted R-squared:  0.7727</span></span>
+<span id="cb11-225"><a href="#cb11-225" tabindex="-1"></a><span class="co">#&gt; Multiple R-squared (proj. model):  0.516 ,   Adjusted R-squared (proj. model):  0.3442 </span></span>
+<span id="cb11-226"><a href="#cb11-226" tabindex="-1"></a><span class="co">#&gt; F-statistic (proj. model):    NA on 13 and 758 DF,  p-value: NA</span></span>
+<span id="cb11-227"><a href="#cb11-227" tabindex="-1"></a></span>
+<span id="cb11-228"><a href="#cb11-228" tabindex="-1"></a><span class="co">#-- Demean OLS</span></span>
+<span id="cb11-229"><a href="#cb11-229" tabindex="-1"></a>dm_formula <span class="ot">&lt;-</span> <span class="fu">as.formula</span>(<span class="st">&quot;demean_lnw ~ demean_age + demean_asq + demean_bmi + </span></span>
+<span id="cb11-230"><a href="#cb11-230" tabindex="-1"></a><span class="st">                demean_hispanic + demean_black + demean_other +</span></span>
+<span id="cb11-231"><a href="#cb11-231" tabindex="-1"></a><span class="st">                demean_asian + demean_schooling + demean_cohab + </span></span>
+<span id="cb11-232"><a href="#cb11-232" tabindex="-1"></a><span class="st">                demean_married + demean_divorced + demean_separated +</span></span>
+<span id="cb11-233"><a href="#cb11-233" tabindex="-1"></a><span class="st">                demean_age_cl + demean_unsafe + demean_llength + demean_reg + </span></span>
+<span id="cb11-234"><a href="#cb11-234" tabindex="-1"></a><span class="st">                demean_asq_cl + demean_appearance_cl + </span></span>
+<span id="cb11-235"><a href="#cb11-235" tabindex="-1"></a><span class="st">                demean_provider_second + demean_asian_cl + demean_black_cl + </span></span>
+<span id="cb11-236"><a href="#cb11-236" tabindex="-1"></a><span class="st">                demean_hispanic_cl + demean_othrace_cl +</span></span>
+<span id="cb11-237"><a href="#cb11-237" tabindex="-1"></a><span class="st">                demean_hot + demean_massage_cl&quot;</span>)</span>
+<span id="cb11-238"><a href="#cb11-238" tabindex="-1"></a></span>
+<span id="cb11-239"><a href="#cb11-239" tabindex="-1"></a>ols_demean <span class="ot">&lt;-</span> <span class="fu">lm_robust</span>(<span class="at">formula =</span> dm_formula, </span>
+<span id="cb11-240"><a href="#cb11-240" tabindex="-1"></a>                <span class="at">data =</span> balanced_sasp, <span class="at">clusters =</span> id,</span>
+<span id="cb11-241"><a href="#cb11-241" tabindex="-1"></a>                <span class="at">se_type =</span> <span class="st">&quot;stata&quot;</span>)</span>
+<span id="cb11-242"><a href="#cb11-242" tabindex="-1"></a></span>
+<span id="cb11-243"><a href="#cb11-243" tabindex="-1"></a><span class="fu">summary</span>(ols_demean)</span>
+<span id="cb11-244"><a href="#cb11-244" tabindex="-1"></a><span class="co">#&gt; 12 coefficients  not defined because the design matrix is rank deficient</span></span>
+<span id="cb11-245"><a href="#cb11-245" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb11-246"><a href="#cb11-246" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
+<span id="cb11-247"><a href="#cb11-247" tabindex="-1"></a><span class="co">#&gt; lm_robust(formula = dm_formula, data = balanced_sasp, clusters = id, </span></span>
+<span id="cb11-248"><a href="#cb11-248" tabindex="-1"></a><span class="co">#&gt;     se_type = &quot;stata&quot;)</span></span>
+<span id="cb11-249"><a href="#cb11-249" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb11-250"><a href="#cb11-250" tabindex="-1"></a><span class="co">#&gt; Standard error type:  stata </span></span>
+<span id="cb11-251"><a href="#cb11-251" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb11-252"><a href="#cb11-252" tabindex="-1"></a><span class="co">#&gt; Coefficients: (12 not defined because the design matrix is rank deficient)</span></span>
+<span id="cb11-253"><a href="#cb11-253" tabindex="-1"></a><span class="co">#&gt;                          Estimate Std. Error  t value  Pr(&gt;|t|)   CI Lower</span></span>
+<span id="cb11-254"><a href="#cb11-254" tabindex="-1"></a><span class="co">#&gt; (Intercept)             1.822e-18  1.239e-18   1.4699 1.428e-01 -6.189e-19</span></span>
+<span id="cb11-255"><a href="#cb11-255" tabindex="-1"></a><span class="co">#&gt; demean_age                     NA         NA       NA        NA         NA</span></span>
+<span id="cb11-256"><a href="#cb11-256" tabindex="-1"></a><span class="co">#&gt; demean_asq                     NA         NA       NA        NA         NA</span></span>
+<span id="cb11-257"><a href="#cb11-257" tabindex="-1"></a><span class="co">#&gt; demean_bmi                     NA         NA       NA        NA         NA</span></span>
+<span id="cb11-258"><a href="#cb11-258" tabindex="-1"></a><span class="co">#&gt; demean_hispanic                NA         NA       NA        NA         NA</span></span>
+<span id="cb11-259"><a href="#cb11-259" tabindex="-1"></a><span class="co">#&gt; demean_black                   NA         NA       NA        NA         NA</span></span>
+<span id="cb11-260"><a href="#cb11-260" tabindex="-1"></a><span class="co">#&gt; demean_other                   NA         NA       NA        NA         NA</span></span>
+<span id="cb11-261"><a href="#cb11-261" tabindex="-1"></a><span class="co">#&gt; demean_asian                   NA         NA       NA        NA         NA</span></span>
+<span id="cb11-262"><a href="#cb11-262" tabindex="-1"></a><span class="co">#&gt; demean_schooling               NA         NA       NA        NA         NA</span></span>
+<span id="cb11-263"><a href="#cb11-263" tabindex="-1"></a><span class="co">#&gt; demean_cohab                   NA         NA       NA        NA         NA</span></span>
+<span id="cb11-264"><a href="#cb11-264" tabindex="-1"></a><span class="co">#&gt; demean_married                 NA         NA       NA        NA         NA</span></span>
+<span id="cb11-265"><a href="#cb11-265" tabindex="-1"></a><span class="co">#&gt; demean_divorced                NA         NA       NA        NA         NA</span></span>
+<span id="cb11-266"><a href="#cb11-266" tabindex="-1"></a><span class="co">#&gt; demean_separated               NA         NA       NA        NA         NA</span></span>
+<span id="cb11-267"><a href="#cb11-267" tabindex="-1"></a><span class="co">#&gt; demean_age_cl           2.305e-03  6.776e-03   0.3402 7.340e-01 -1.104e-02</span></span>
+<span id="cb11-268"><a href="#cb11-268" tabindex="-1"></a><span class="co">#&gt; demean_unsafe           5.103e-02  2.828e-02   1.8044 7.234e-02 -4.663e-03</span></span>
+<span id="cb11-269"><a href="#cb11-269" tabindex="-1"></a><span class="co">#&gt; demean_llength         -4.345e-01  2.432e-02 -17.8642 6.739e-47 -4.824e-01</span></span>
+<span id="cb11-270"><a href="#cb11-270" tabindex="-1"></a><span class="co">#&gt; demean_reg             -3.734e-02  1.876e-02  -1.9904 4.761e-02 -7.429e-02</span></span>
+<span id="cb11-271"><a href="#cb11-271" tabindex="-1"></a><span class="co">#&gt; demean_asq_cl          -1.470e-05  7.550e-05  -0.1947 8.458e-01 -1.634e-04</span></span>
+<span id="cb11-272"><a href="#cb11-272" tabindex="-1"></a><span class="co">#&gt; demean_appearance_cl    5.635e-03  5.803e-03   0.9711 3.324e-01 -5.792e-03</span></span>
+<span id="cb11-273"><a href="#cb11-273" tabindex="-1"></a><span class="co">#&gt; demean_provider_second  1.131e-01  6.040e-02   1.8731 6.219e-02 -5.808e-03</span></span>
+<span id="cb11-274"><a href="#cb11-274" tabindex="-1"></a><span class="co">#&gt; demean_asian_cl        -9.873e-03  3.383e-02  -0.2918 7.706e-01 -7.650e-02</span></span>
+<span id="cb11-275"><a href="#cb11-275" tabindex="-1"></a><span class="co">#&gt; demean_black_cl         2.651e-02  4.234e-02   0.6261 5.318e-01 -5.687e-02</span></span>
+<span id="cb11-276"><a href="#cb11-276" tabindex="-1"></a><span class="co">#&gt; demean_hispanic_cl     -6.209e-02  5.172e-02  -1.2006 2.310e-01 -1.639e-01</span></span>
+<span id="cb11-277"><a href="#cb11-277" tabindex="-1"></a><span class="co">#&gt; demean_othrace_cl       1.422e-01  4.929e-02   2.8846 4.253e-03  4.511e-02</span></span>
+<span id="cb11-278"><a href="#cb11-278" tabindex="-1"></a><span class="co">#&gt; demean_hot              5.248e-02  2.711e-02   1.9358 5.399e-02 -9.062e-04</span></span>
+<span id="cb11-279"><a href="#cb11-279" tabindex="-1"></a><span class="co">#&gt; demean_massage_cl      -1.034e-03  2.780e-02  -0.0372 9.704e-01 -5.579e-02</span></span>
+<span id="cb11-280"><a href="#cb11-280" tabindex="-1"></a><span class="co">#&gt;                          CI Upper  DF</span></span>
+<span id="cb11-281"><a href="#cb11-281" tabindex="-1"></a><span class="co">#&gt; (Intercept)             4.262e-18 256</span></span>
+<span id="cb11-282"><a href="#cb11-282" tabindex="-1"></a><span class="co">#&gt; demean_age                     NA  NA</span></span>
+<span id="cb11-283"><a href="#cb11-283" tabindex="-1"></a><span class="co">#&gt; demean_asq                     NA  NA</span></span>
+<span id="cb11-284"><a href="#cb11-284" tabindex="-1"></a><span class="co">#&gt; demean_bmi                     NA  NA</span></span>
+<span id="cb11-285"><a href="#cb11-285" tabindex="-1"></a><span class="co">#&gt; demean_hispanic                NA  NA</span></span>
+<span id="cb11-286"><a href="#cb11-286" tabindex="-1"></a><span class="co">#&gt; demean_black                   NA  NA</span></span>
+<span id="cb11-287"><a href="#cb11-287" tabindex="-1"></a><span class="co">#&gt; demean_other                   NA  NA</span></span>
+<span id="cb11-288"><a href="#cb11-288" tabindex="-1"></a><span class="co">#&gt; demean_asian                   NA  NA</span></span>
+<span id="cb11-289"><a href="#cb11-289" tabindex="-1"></a><span class="co">#&gt; demean_schooling               NA  NA</span></span>
+<span id="cb11-290"><a href="#cb11-290" tabindex="-1"></a><span class="co">#&gt; demean_cohab                   NA  NA</span></span>
+<span id="cb11-291"><a href="#cb11-291" tabindex="-1"></a><span class="co">#&gt; demean_married                 NA  NA</span></span>
+<span id="cb11-292"><a href="#cb11-292" tabindex="-1"></a><span class="co">#&gt; demean_divorced                NA  NA</span></span>
+<span id="cb11-293"><a href="#cb11-293" tabindex="-1"></a><span class="co">#&gt; demean_separated               NA  NA</span></span>
+<span id="cb11-294"><a href="#cb11-294" tabindex="-1"></a><span class="co">#&gt; demean_age_cl           1.565e-02 256</span></span>
+<span id="cb11-295"><a href="#cb11-295" tabindex="-1"></a><span class="co">#&gt; demean_unsafe           1.067e-01 256</span></span>
+<span id="cb11-296"><a href="#cb11-296" tabindex="-1"></a><span class="co">#&gt; demean_llength         -3.866e-01 256</span></span>
+<span id="cb11-297"><a href="#cb11-297" tabindex="-1"></a><span class="co">#&gt; demean_reg             -3.962e-04 256</span></span>
+<span id="cb11-298"><a href="#cb11-298" tabindex="-1"></a><span class="co">#&gt; demean_asq_cl           1.340e-04 256</span></span>
+<span id="cb11-299"><a href="#cb11-299" tabindex="-1"></a><span class="co">#&gt; demean_appearance_cl    1.706e-02 256</span></span>
+<span id="cb11-300"><a href="#cb11-300" tabindex="-1"></a><span class="co">#&gt; demean_provider_second  2.321e-01 256</span></span>
+<span id="cb11-301"><a href="#cb11-301" tabindex="-1"></a><span class="co">#&gt; demean_asian_cl         5.675e-02 256</span></span>
+<span id="cb11-302"><a href="#cb11-302" tabindex="-1"></a><span class="co">#&gt; demean_black_cl         1.099e-01 256</span></span>
+<span id="cb11-303"><a href="#cb11-303" tabindex="-1"></a><span class="co">#&gt; demean_hispanic_cl      3.975e-02 256</span></span>
+<span id="cb11-304"><a href="#cb11-304" tabindex="-1"></a><span class="co">#&gt; demean_othrace_cl       2.392e-01 256</span></span>
+<span id="cb11-305"><a href="#cb11-305" tabindex="-1"></a><span class="co">#&gt; demean_hot              1.059e-01 256</span></span>
+<span id="cb11-306"><a href="#cb11-306" tabindex="-1"></a><span class="co">#&gt; demean_massage_cl       5.372e-02 256</span></span>
+<span id="cb11-307"><a href="#cb11-307" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb11-308"><a href="#cb11-308" tabindex="-1"></a><span class="co">#&gt; Multiple R-squared:  0.516 , Adjusted R-squared:  0.5098 </span></span>
+<span id="cb11-309"><a href="#cb11-309" tabindex="-1"></a><span class="co">#&gt; F-statistic:    NA on 13 and 256 DF,  p-value: NA</span></span></code></pre></div>
 <p>This is an R Markdown format used for publishing markdown documents
 to GitHub. When you click the <strong>Knit</strong> button all R code
 chunks are run and a markdown file (.md) suitable for publishing to
